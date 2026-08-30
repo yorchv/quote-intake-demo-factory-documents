@@ -1,0 +1,1321 @@
+{
+  "agents": [
+    {
+      "agent_id": "market_positioning_research_agent",
+      "definition_of_done": [
+        "product_brief.organic_discovery uses product_factory.organic_discovery.v1 and research_status is researched.",
+        "The positioning names one ideal customer, job to be done, buying trigger, primary alternative, value proposition, at least two differentiators, and at least two objections.",
+        "At least two dated evidence sources retain a source ref, source type, and observed insight.",
+        "Every approved customer-facing claim resolves to retained evidence; unsupported ideas remain hypotheses or prohibited.",
+        "Query clusters group real customer language by intent and map to proposed public routes rather than keyword permutations.",
+        "Distribution pursues legitimate channels and earned evidence while forbidding fabricated reviews, link schemes, and inauthentic mentions.",
+        "Measurement prioritizes qualified conversion and commercial outcomes over rankings or raw traffic."
+      ],
+      "depends_on": [],
+      "output_section": "product_brief.organic_discovery",
+      "stage": "market_strategy"
+    },
+    {
+      "agent_id": "product_naming_research_agent",
+      "definition_of_done": [
+        "product_brief.name and product_brief.naming.selected_name match.",
+        "product_brief.naming.research_status is researched.",
+        "At least three unique candidates include rationale, risks, and comparative scores.",
+        "At least two rejected alternatives include concrete reasons.",
+        "At least two source URLs or dated exact-name/category search notes are retained.",
+        "The selected name is one to three words and avoids generic utility labels.",
+        "The evidence states that legal, trademark, domain, company-name, and app-store clearance remain required before public launch."
+      ],
+      "depends_on": [
+        "market_positioning_research_agent"
+      ],
+      "output_section": "product_brief.naming",
+      "stage": "personas_and_sops"
+    },
+    {
+      "agent_id": "persona_research_agent",
+      "definition_of_done": [
+        "Every workflow actor resolves to one persona id.",
+        "Each persona has responsibilities, decisions, permissions, pain points, and success measures.",
+        "Personas describe real operational roles rather than generic users."
+      ],
+      "depends_on": [
+        "product_naming_research_agent"
+      ],
+      "output_section": "personas",
+      "stage": "personas_and_sops"
+    },
+    {
+      "agent_id": "common_sop_catalog_agent",
+      "definition_of_done": [
+        "Every common SOP references a versioned common-library template.",
+        "Owners, inputs, outputs, controls, metrics, and exception paths are explicit.",
+        "Adaptations retain the common template id and version for future migration."
+      ],
+      "depends_on": [
+        "persona_research_agent"
+      ],
+      "output_section": "sops.common",
+      "stage": "personas_and_sops"
+    },
+    {
+      "agent_id": "domain_sop_agent",
+      "definition_of_done": [
+        "At least one product-specific SOP is defined.",
+        "Each SOP has a trigger, preconditions, ordered steps, exceptions, outputs, controls, and metrics.",
+        "Every step identifies its persona owner and data reads or writes."
+      ],
+      "depends_on": [
+        "persona_research_agent",
+        "common_sop_catalog_agent"
+      ],
+      "output_section": "sops.product",
+      "stage": "personas_and_sops"
+    },
+    {
+      "agent_id": "data_model_architect_agent",
+      "definition_of_done": [
+        "Every SOP input and output maps to a canonical entity and field.",
+        "Keys, relationships, tenant scope, source of truth, sensitive fields, indexes, and retention are explicit.",
+        "Delete behavior is explicit and defaults to retain or soft-delete."
+      ],
+      "depends_on": [
+        "common_sop_catalog_agent",
+        "domain_sop_agent"
+      ],
+      "output_section": "data_model",
+      "stage": "data_model"
+    },
+    {
+      "agent_id": "migration_safety_agent",
+      "definition_of_done": [
+        "Every prior dataset has an explicit preservation and transfer strategy.",
+        "Migrations use expand-migrate-contract and are non-destructive by default.",
+        "Each transfer defines field mappings, reconciliation checks, rollback, and source retention.",
+        "Contract or deletion steps require separate explicit approval and are never automatic."
+      ],
+      "depends_on": [
+        "data_model_architect_agent"
+      ],
+      "output_section": "evolution",
+      "stage": "data_model"
+    },
+    {
+      "agent_id": "workflow_architect_agent",
+      "definition_of_done": [
+        "Every workflow references one or more SOPs and canonical entities.",
+        "Create, read, and update operations plus an explicit delete policy are defined.",
+        "Every transition names an actor, guard, event, and side effects.",
+        "Happy paths and exception paths are executable and auditable.",
+        "Every canonical entity has explicit create, read, update, archive, restore, and forbidden hard-delete policy.",
+        "Every user mutation and workflow transition resolves to a typed idempotent command with a permission and machine-readable guards.",
+        "Production identity and persistence prerequisites are explicit and fail closed."
+      ],
+      "depends_on": [
+        "domain_sop_agent",
+        "data_model_architect_agent",
+        "migration_safety_agent"
+      ],
+      "output_section": "product_workflows",
+      "stage": "product_workflows"
+    },
+    {
+      "agent_id": "product_design_agent",
+      "definition_of_done": [
+        "Every customer route maps to personas, workflows, and a primary job.",
+        "Primary actions map to defined workflow transitions or CRUD operations.",
+        "Every route action binds to an immutable executable_product command_ref; labels do not determine behavior.",
+        "Loading, empty, error, blocked, and completed states are specified.",
+        "Every customer route contains finished customer_copy for navigation, orientation, primary, empty, error, blocked, and completed states.",
+        "The language system defines first-run success, customer vocabulary, terms to avoid, plain-language definitions, and voice principles.",
+        "The agent interface maps every route intent to required context, exact command_refs, success evidence, stop conditions, escalation conditions, and handoff fields.",
+        "A versioned distinctive-design contract defines an experience thesis, signature interactions, visual language, public and authenticated composition, and anti-template constraints.",
+        "An executable experience blueprint defines the primary task, product-specific panel composition, signature components, command-bound journeys, required component files, and browser evidence.",
+        "The product passes a silhouette test: its primary screen remains distinguishable from a generic SaaS dashboard when copy, name, and logo are hidden.",
+        "No screen exists solely to display implementation or factory metadata."
+      ],
+      "depends_on": [
+        "workflow_architect_agent"
+      ],
+      "output_section": "product_design",
+      "stage": "product_design"
+    },
+    {
+      "agent_id": "public_information_architecture_agent",
+      "definition_of_done": [
+        "Exactly one anonymous public root page explains the category, audience, product value, and next action.",
+        "Every public page has one useful search intent, original visible value, unique title and description, evidence refs, approved claim refs, internal links, a CTA, applicable structured-data types, and an actual material-change date.",
+        "Only anonymous public indexable canonical pages opt into the sitemap.",
+        "Authenticated, owner, login, API, and preview routes are excluded from the public page portfolio.",
+        "Every query cluster resolves to one declared public page.",
+        "No page exists solely to target a keyword variation or manufacture apparent freshness."
+      ],
+      "depends_on": [
+        "product_design_agent"
+      ],
+      "output_section": "product_brief.organic_discovery.public_pages",
+      "stage": "product_design"
+    },
+    {
+      "agent_id": "organic_discovery_verifier_agent",
+      "definition_of_done": [
+        "The complete organic discovery domain validator passes.",
+        "Verification uses product_factory.organic_discovery_strategy_verification.v1 with verified_by organic_discovery_verifier_agent.",
+        "checks_passed is non-empty and checks_failed is empty.",
+        "No approved claim lacks retained evidence.",
+        "No private route is indexable or sitemap eligible.",
+        "No unsupported review, ranking, revenue, customer, or performance claim is approved."
+      ],
+      "depends_on": [
+        "public_information_architecture_agent"
+      ],
+      "output_section": "product_brief.organic_discovery.verification",
+      "stage": "verification"
+    },
+    {
+      "agent_id": "architecture_verifier_agent",
+      "definition_of_done": [
+        "All preceding agent definitions of done, including organic discovery, pass with evidence.",
+        "SOP-to-data-to-workflow-to-design traceability has no unresolved references.",
+        "Migration plans preserve prior data and include reconciliation and rollback.",
+        "The architecture verification report has no failed checks."
+      ],
+      "depends_on": [
+        "organic_discovery_verifier_agent"
+      ],
+      "output_section": "verification",
+      "stage": "verification"
+    }
+  ],
+  "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+  "created_at": "2026-08-29T21:51:27+00:00",
+  "generation_gate": {
+    "forbidden_bypass": "required_for_generation architectures cannot be skipped",
+    "required_status": "verified",
+    "required_verification_schema": "product_factory.product_architecture_verification.v1"
+  },
+  "methodology": "sop_first",
+  "ordered_stages": [
+    "market_strategy",
+    "personas_and_sops",
+    "data_model",
+    "product_workflows",
+    "product_design",
+    "verification"
+  ],
+  "product_id": "quote-intake-demo",
+  "schema_version": "product_factory.product_architecture_pipeline.v1",
+  "tasks": [
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Use dated source evidence to define the ideal customer, buying trigger, alternatives, category, differentiated value, objections, truthful claims, search intents, distribution hypotheses, and measurement goals.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "market_positioning_research_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "market_positioning_research_agent",
+          "definition_of_done": [
+            "product_brief.organic_discovery uses product_factory.organic_discovery.v1 and research_status is researched.",
+            "The positioning names one ideal customer, job to be done, buying trigger, primary alternative, value proposition, at least two differentiators, and at least two objections.",
+            "At least two dated evidence sources retain a source ref, source type, and observed insight.",
+            "Every approved customer-facing claim resolves to retained evidence; unsupported ideas remain hypotheses or prohibited.",
+            "Query clusters group real customer language by intent and map to proposed public routes rather than keyword permutations.",
+            "Distribution pursues legitimate channels and earned evidence while forbidding fabricated reviews, link schemes, and inauthentic mentions.",
+            "Measurement prioritizes qualified conversion and commercial outcomes over rankings or raw traffic.",
+            "After the owned section passes, append or update agent_evidence for market_positioning_research_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "product_brief.organic_discovery"
+        },
+        "output_section": "product_brief.organic_discovery",
+        "phase": {
+          "id": "market_strategy",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "research_policy": {
+          "internet_research_required": true,
+          "legal_clearance_in_scope": false,
+          "prefer_primary_and_customer_language_sources": true,
+          "retain_source_ref_type_date_and_observed_insight": true,
+          "unsupported_claim_status": "hypothesis_or_prohibited"
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "product_brief.organic_discovery uses product_factory.organic_discovery.v1 and research_status is researched.",
+          "The positioning names one ideal customer, job to be done, buying trigger, primary alternative, value proposition, at least two differentiators, and at least two objections.",
+          "At least two dated evidence sources retain a source ref, source type, and observed insight.",
+          "Every approved customer-facing claim resolves to retained evidence; unsupported ideas remain hypotheses or prohibited.",
+          "Query clusters group real customer language by intent and map to proposed public routes rather than keyword permutations.",
+          "Distribution pursues legitimate channels and earned evidence while forbidding fabricated reviews, link schemes, and inauthentic mentions.",
+          "Measurement prioritizes qualified conversion and commercial outcomes over rankings or raw traffic.",
+          "After the owned section passes, append or update agent_evidence for market_positioning_research_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "market_positioning_research_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [],
+        "execution_sandbox": "workspace-write",
+        "role": "market_positioning_research_agent",
+        "task_id": "architecture_market_positioning_research_agent",
+        "title": "Research the market and choose a defensible position"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Select a short, memorable, search-aware customer name while preserving the stable product id.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "product_naming_research_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "product_naming_research_agent",
+          "definition_of_done": [
+            "product_brief.name and product_brief.naming.selected_name match.",
+            "product_brief.naming.research_status is researched.",
+            "At least three unique candidates include rationale, risks, and comparative scores.",
+            "At least two rejected alternatives include concrete reasons.",
+            "At least two source URLs or dated exact-name/category search notes are retained.",
+            "The selected name is one to three words and avoids generic utility labels.",
+            "The evidence states that legal, trademark, domain, company-name, and app-store clearance remain required before public launch.",
+            "After the owned section passes, append or update agent_evidence for product_naming_research_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "product_brief.naming"
+        },
+        "output_section": "product_brief.naming",
+        "phase": {
+          "id": "personas_and_sops",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "product_brief.name and product_brief.naming.selected_name match.",
+          "product_brief.naming.research_status is researched.",
+          "At least three unique candidates include rationale, risks, and comparative scores.",
+          "At least two rejected alternatives include concrete reasons.",
+          "At least two source URLs or dated exact-name/category search notes are retained.",
+          "The selected name is one to three words and avoids generic utility labels.",
+          "The evidence states that legal, trademark, domain, company-name, and app-store clearance remain required before public launch.",
+          "After the owned section passes, append or update agent_evidence for product_naming_research_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "product_naming_research_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "market_positioning_research_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "product_naming_research_agent",
+        "task_id": "architecture_product_naming_research_agent",
+        "title": "Research the customer-facing product name"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Responsibilities, decisions, permissions, pain points, and measurable outcomes for each persona.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "persona_research_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "persona_research_agent",
+          "definition_of_done": [
+            "Every workflow actor resolves to one persona id.",
+            "Each persona has responsibilities, decisions, permissions, pain points, and success measures.",
+            "Personas describe real operational roles rather than generic users.",
+            "After the owned section passes, append or update agent_evidence for persona_research_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "personas"
+        },
+        "output_section": "personas",
+        "phase": {
+          "id": "personas_and_sops",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "Every workflow actor resolves to one persona id.",
+          "Each persona has responsibilities, decisions, permissions, pain points, and success measures.",
+          "Personas describe real operational roles rather than generic users.",
+          "After the owned section passes, append or update agent_evidence for persona_research_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "persona_research_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "product_naming_research_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "persona_research_agent",
+        "task_id": "architecture_persona_research_agent",
+        "title": "Define operational personas"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Reuse versioned common SOP templates without copying over product-specific behavior.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "common_sop_catalog_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "common_sop_catalog_agent",
+          "definition_of_done": [
+            "Every common SOP references a versioned common-library template.",
+            "Owners, inputs, outputs, controls, metrics, and exception paths are explicit.",
+            "Adaptations retain the common template id and version for future migration.",
+            "After the owned section passes, append or update agent_evidence for common_sop_catalog_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "sops.common"
+        },
+        "output_section": "sops.common",
+        "phase": {
+          "id": "personas_and_sops",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "Every common SOP references a versioned common-library template.",
+          "Owners, inputs, outputs, controls, metrics, and exception paths are explicit.",
+          "Adaptations retain the common template id and version for future migration.",
+          "After the owned section passes, append or update agent_evidence for common_sop_catalog_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "common_sop_catalog_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "persona_research_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "common_sop_catalog_agent",
+        "task_id": "architecture_common_sop_catalog_agent",
+        "title": "Select and adapt common SOPs"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Unique business procedures, decision points, exceptions, controls, and handoffs.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "domain_sop_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "domain_sop_agent",
+          "definition_of_done": [
+            "At least one product-specific SOP is defined.",
+            "Each SOP has a trigger, preconditions, ordered steps, exceptions, outputs, controls, and metrics.",
+            "Every step identifies its persona owner and data reads or writes.",
+            "After the owned section passes, append or update agent_evidence for domain_sop_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "sops.product"
+        },
+        "output_section": "sops.product",
+        "phase": {
+          "id": "personas_and_sops",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "At least one product-specific SOP is defined.",
+          "Each SOP has a trigger, preconditions, ordered steps, exceptions, outputs, controls, and metrics.",
+          "Every step identifies its persona owner and data reads or writes.",
+          "After the owned section passes, append or update agent_evidence for domain_sop_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "domain_sop_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "persona_research_agent",
+          "common_sop_catalog_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "domain_sop_agent",
+        "task_id": "architecture_domain_sop_agent",
+        "title": "Define product-specific SOPs"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Entities, fields, keys, tenant scope, relationships, source of truth, auditability, and retention derived from SOP data use.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "data_model_architect_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "data_model_architect_agent",
+          "definition_of_done": [
+            "Every SOP input and output maps to a canonical entity and field.",
+            "Keys, relationships, tenant scope, source of truth, sensitive fields, indexes, and retention are explicit.",
+            "Delete behavior is explicit and defaults to retain or soft-delete.",
+            "After the owned section passes, append or update agent_evidence for data_model_architect_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "data_model"
+        },
+        "output_section": "data_model",
+        "phase": {
+          "id": "data_model",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "Every SOP input and output maps to a canonical entity and field.",
+          "Keys, relationships, tenant scope, source of truth, sensitive fields, indexes, and retention are explicit.",
+          "Delete behavior is explicit and defaults to retain or soft-delete.",
+          "After the owned section passes, append or update agent_evidence for data_model_architect_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "data_model_architect_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "common_sop_catalog_agent",
+          "domain_sop_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "data_model_architect_agent",
+        "task_id": "architecture_data_model_architect_agent",
+        "title": "Derive the canonical data model"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Additive migrations, backfills, dual-read or dual-write cutovers, reconciliation, rollback, and source retention.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "migration_safety_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "migration_safety_agent",
+          "definition_of_done": [
+            "Every prior dataset has an explicit preservation and transfer strategy.",
+            "Migrations use expand-migrate-contract and are non-destructive by default.",
+            "Each transfer defines field mappings, reconciliation checks, rollback, and source retention.",
+            "Contract or deletion steps require separate explicit approval and are never automatic.",
+            "After the owned section passes, append or update agent_evidence for migration_safety_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "evolution"
+        },
+        "output_section": "evolution",
+        "phase": {
+          "id": "data_model",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "Every prior dataset has an explicit preservation and transfer strategy.",
+          "Migrations use expand-migrate-contract and are non-destructive by default.",
+          "Each transfer defines field mappings, reconciliation checks, rollback, and source retention.",
+          "Contract or deletion steps require separate explicit approval and are never automatic.",
+          "After the owned section passes, append or update agent_evidence for migration_safety_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "migration_safety_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "data_model_architect_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "migration_safety_agent",
+        "task_id": "architecture_migration_safety_agent",
+        "title": "Plan schema evolution and data transfer"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Canonical entity lifecycles, typed commands, reachable states, machine-readable guards, side effects, events, permissions, system requirements, SLAs, and executable exception paths.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "workflow_architect_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "workflow_architect_agent",
+          "definition_of_done": [
+            "Every workflow references one or more SOPs and canonical entities.",
+            "Create, read, and update operations plus an explicit delete policy are defined.",
+            "Every transition names an actor, guard, event, and side effects.",
+            "Happy paths and exception paths are executable and auditable.",
+            "Every canonical entity has explicit create, read, update, archive, restore, and forbidden hard-delete policy.",
+            "Every user mutation and workflow transition resolves to a typed idempotent command with a permission and machine-readable guards.",
+            "Production identity and persistence prerequisites are explicit and fail closed.",
+            "After the owned section passes, append or update agent_evidence for workflow_architect_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "product_workflows"
+        },
+        "output_section": "product_workflows",
+        "phase": {
+          "id": "product_workflows",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "Every workflow references one or more SOPs and canonical entities.",
+          "Create, read, and update operations plus an explicit delete policy are defined.",
+          "Every transition names an actor, guard, event, and side effects.",
+          "Happy paths and exception paths are executable and auditable.",
+          "Every canonical entity has explicit create, read, update, archive, restore, and forbidden hard-delete policy.",
+          "Every user mutation and workflow transition resolves to a typed idempotent command with a permission and machine-readable guards.",
+          "Production identity and persistence prerequisites are explicit and fail closed.",
+          "After the owned section passes, append or update agent_evidence for workflow_architect_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "workflow_architect_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "domain_sop_agent",
+          "data_model_architect_agent",
+          "migration_safety_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "workflow_architect_agent",
+        "task_id": "architecture_workflow_architect_agent",
+        "title": "Translate SOPs into product workflows"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Translate verified workflows into a customer mental model and a machine-readable agent interface. Own the language system, first success, route copy, intent and command discovery, experience thesis, signature interactions, composition, states, and accessibility.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "product_design_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "product_design_agent",
+          "definition_of_done": [
+            "Every customer route maps to personas, workflows, and a primary job.",
+            "Primary actions map to defined workflow transitions or CRUD operations.",
+            "Every route action binds to an immutable executable_product command_ref; labels do not determine behavior.",
+            "Loading, empty, error, blocked, and completed states are specified.",
+            "Every customer route contains finished customer_copy for navigation, orientation, primary, empty, error, blocked, and completed states.",
+            "The language system defines first-run success, customer vocabulary, terms to avoid, plain-language definitions, and voice principles.",
+            "The agent interface maps every route intent to required context, exact command_refs, success evidence, stop conditions, escalation conditions, and handoff fields.",
+            "A versioned distinctive-design contract defines an experience thesis, signature interactions, visual language, public and authenticated composition, and anti-template constraints.",
+            "An executable experience blueprint defines the primary task, product-specific panel composition, signature components, command-bound journeys, required component files, and browser evidence.",
+            "The product passes a silhouette test: its primary screen remains distinguishable from a generic SaaS dashboard when copy, name, and logo are hidden.",
+            "No screen exists solely to display implementation or factory metadata.",
+            "After the owned section passes, append or update agent_evidence for product_design_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "product_design"
+        },
+        "output_section": "product_design",
+        "phase": {
+          "id": "product_design",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "Every customer route maps to personas, workflows, and a primary job.",
+          "Primary actions map to defined workflow transitions or CRUD operations.",
+          "Every route action binds to an immutable executable_product command_ref; labels do not determine behavior.",
+          "Loading, empty, error, blocked, and completed states are specified.",
+          "Every customer route contains finished customer_copy for navigation, orientation, primary, empty, error, blocked, and completed states.",
+          "The language system defines first-run success, customer vocabulary, terms to avoid, plain-language definitions, and voice principles.",
+          "The agent interface maps every route intent to required context, exact command_refs, success evidence, stop conditions, escalation conditions, and handoff fields.",
+          "A versioned distinctive-design contract defines an experience thesis, signature interactions, visual language, public and authenticated composition, and anti-template constraints.",
+          "An executable experience blueprint defines the primary task, product-specific panel composition, signature components, command-bound journeys, required component files, and browser evidence.",
+          "The product passes a silhouette test: its primary screen remains distinguishable from a generic SaaS dashboard when copy, name, and logo are hidden.",
+          "No screen exists solely to display implementation or factory metadata.",
+          "After the owned section passes, append or update agent_evidence for product_design_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "product_design_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "workflow_architect_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "product_design_agent",
+        "task_id": "architecture_product_design_agent",
+        "title": "Design a distinctive product experience around verified workflows"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Turn the researched market position into a small portfolio of useful public pages with explicit audience, intent, evidence, conversion, internal-link, structured-data, indexing, and freshness contracts.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "public_information_architecture_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "public_information_architecture_agent",
+          "definition_of_done": [
+            "Exactly one anonymous public root page explains the category, audience, product value, and next action.",
+            "Every public page has one useful search intent, original visible value, unique title and description, evidence refs, approved claim refs, internal links, a CTA, applicable structured-data types, and an actual material-change date.",
+            "Only anonymous public indexable canonical pages opt into the sitemap.",
+            "Authenticated, owner, login, API, and preview routes are excluded from the public page portfolio.",
+            "Every query cluster resolves to one declared public page.",
+            "No page exists solely to target a keyword variation or manufacture apparent freshness.",
+            "After the owned section passes, append or update agent_evidence for public_information_architecture_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "product_brief.organic_discovery.public_pages"
+        },
+        "output_section": "product_brief.organic_discovery.public_pages",
+        "phase": {
+          "id": "product_design",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "research_policy": {
+          "internet_research_required": true,
+          "legal_clearance_in_scope": false,
+          "prefer_primary_and_customer_language_sources": true,
+          "retain_source_ref_type_date_and_observed_insight": true,
+          "unsupported_claim_status": "hypothesis_or_prohibited"
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "Exactly one anonymous public root page explains the category, audience, product value, and next action.",
+          "Every public page has one useful search intent, original visible value, unique title and description, evidence refs, approved claim refs, internal links, a CTA, applicable structured-data types, and an actual material-change date.",
+          "Only anonymous public indexable canonical pages opt into the sitemap.",
+          "Authenticated, owner, login, API, and preview routes are excluded from the public page portfolio.",
+          "Every query cluster resolves to one declared public page.",
+          "No page exists solely to target a keyword variation or manufacture apparent freshness.",
+          "After the owned section passes, append or update agent_evidence for public_information_architecture_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "public_information_architecture_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "product_design_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "public_information_architecture_agent",
+        "task_id": "architecture_public_information_architecture_agent",
+        "title": "Design the public information architecture"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Verify evidence, claims, intent coverage, page uniqueness, public/private separation, crawler policy, structured-data applicability, distribution safety, and outcome measurement without authoring the strategy being reviewed.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "organic_discovery_verifier_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "organic_discovery_verifier_agent",
+          "definition_of_done": [
+            "The complete organic discovery domain validator passes.",
+            "Verification uses product_factory.organic_discovery_strategy_verification.v1 with verified_by organic_discovery_verifier_agent.",
+            "checks_passed is non-empty and checks_failed is empty.",
+            "No approved claim lacks retained evidence.",
+            "No private route is indexable or sitemap eligible.",
+            "No unsupported review, ranking, revenue, customer, or performance claim is approved.",
+            "After the owned section passes, append or update agent_evidence for organic_discovery_verifier_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "product_brief.organic_discovery.verification"
+        },
+        "output_section": "product_brief.organic_discovery.verification",
+        "phase": {
+          "id": "verification",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "research_policy": {
+          "internet_research_required": true,
+          "legal_clearance_in_scope": false,
+          "prefer_primary_and_customer_language_sources": true,
+          "retain_source_ref_type_date_and_observed_insight": true,
+          "unsupported_claim_status": "hypothesis_or_prohibited"
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "The complete organic discovery domain validator passes.",
+          "Verification uses product_factory.organic_discovery_strategy_verification.v1 with verified_by organic_discovery_verifier_agent.",
+          "checks_passed is non-empty and checks_failed is empty.",
+          "No approved claim lacks retained evidence.",
+          "No private route is indexable or sitemap eligible.",
+          "No unsupported review, ranking, revenue, customer, or performance claim is approved.",
+          "After the owned section passes, append or update agent_evidence for organic_discovery_verifier_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "organic_discovery_verifier_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "public_information_architecture_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "organic_discovery_verifier_agent",
+        "task_id": "architecture_organic_discovery_verifier_agent",
+        "title": "Independently verify the organic discovery strategy"
+      }
+    },
+    {
+      "build": {
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "product_id": "quote-intake-demo",
+        "product_name": "Quote Intake Demo"
+      },
+      "context": {
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "artifacts/factory/product-architecture/quote-intake-demo"
+        ],
+        "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+        "context_refs": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+          "config/common-sop-library.json",
+          "docs/sop-first-product-architecture-contract.md",
+          "docs/organic-discovery-contract.md"
+        ],
+        "focus": "Cross-stage traceability, migration safety, coverage, and definitions of done.",
+        "forbidden_scope": [
+          "deleting or replacing prior architecture artifacts",
+          "destructive data migration",
+          "design work before workflow contracts pass",
+          "invented production evidence",
+          "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+          "mass-generated public pages or keyword permutations",
+          "raw secret persistence"
+        ],
+        "output_contract": {
+          "agent_evidence": {
+            "agent_id": "architecture_verifier_agent",
+            "checks_failed": [],
+            "checks_passed": "non_empty_scoped_checks",
+            "section": "agent_evidence",
+            "status": "done"
+          },
+          "authored_by": "architecture_verifier_agent",
+          "definition_of_done": [
+            "All preceding agent definitions of done, including organic discovery, pass with evidence.",
+            "SOP-to-data-to-workflow-to-design traceability has no unresolved references.",
+            "Migration plans preserve prior data and include reconciliation and rollback.",
+            "The architecture verification report has no failed checks.",
+            "After the owned section passes, append or update agent_evidence for architecture_verifier_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+          ],
+          "schema_version": "product_factory.product_architecture.v1",
+          "section": "verification"
+        },
+        "output_section": "verification",
+        "phase": {
+          "id": "verification",
+          "ordered_method": [
+            "market_strategy",
+            "personas_and_sops",
+            "data_model",
+            "product_workflows",
+            "product_design"
+          ]
+        },
+        "verification_commands": [
+          "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ]
+      },
+      "created_at": "2026-08-29T21:51:27+00:00",
+      "protocol": "product_factory.agent_task.v1",
+      "schema_version": "product_factory.agent_task.v1",
+      "task": {
+        "acceptance_criteria": [
+          "All preceding agent definitions of done, including organic discovery, pass with evidence.",
+          "SOP-to-data-to-workflow-to-design traceability has no unresolved references.",
+          "Migration plans preserve prior data and include reconciliation and rollback.",
+          "The architecture verification report has no failed checks.",
+          "After the owned section passes, append or update agent_evidence for architecture_verifier_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+        ],
+        "action": "author_or_verify_product_architecture_section",
+        "agent_id": "architecture_verifier_agent",
+        "allowed_scope": [
+          "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+        ],
+        "build_id": "architecture_quote-intake-demo_2ef739047aad",
+        "dependencies": [
+          "organic_discovery_verifier_agent"
+        ],
+        "execution_sandbox": "workspace-write",
+        "role": "architecture_verifier_agent",
+        "task_id": "architecture_architecture_verifier_agent",
+        "title": "Verify the ordered architecture contract"
+      }
+    }
+  ]
+}

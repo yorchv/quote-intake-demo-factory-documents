@@ -1,0 +1,161 @@
+{
+  "checks": [
+    {
+      "name": "launch distribution contract exists",
+      "passed": true
+    },
+    {
+      "name": "launch distribution agent task exists",
+      "passed": true
+    },
+    {
+      "detail": {
+        "length": 52
+      },
+      "name": "SEO title is concise",
+      "passed": true
+    },
+    {
+      "detail": {
+        "length": 146
+      },
+      "name": "SEO description is concise",
+      "passed": true
+    },
+    {
+      "name": "researched or derived intent phrases are present",
+      "passed": true
+    },
+    {
+      "name": "page contains rel=\"canonical\"",
+      "passed": true
+    },
+    {
+      "name": "page contains name=\"description\"",
+      "passed": true
+    },
+    {
+      "name": "page contains name=\"robots\"",
+      "passed": true
+    },
+    {
+      "name": "page contains property=\"og:title\"",
+      "passed": true
+    },
+    {
+      "name": "page contains property=\"og:image\"",
+      "passed": true
+    },
+    {
+      "name": "page contains name=\"twitter:card\"",
+      "passed": true
+    },
+    {
+      "name": "page contains type=\"application/ld+json\"",
+      "passed": true
+    },
+    {
+      "name": "page contains '@type': 'Organization'",
+      "passed": true
+    },
+    {
+      "name": "page contains '@type': 'WebSite'",
+      "passed": true
+    },
+    {
+      "name": "page contains '@type': 'WebPage'",
+      "passed": true
+    },
+    {
+      "name": "obsolete meta keywords tag is absent",
+      "passed": true
+    },
+    {
+      "name": "sitemap artifact exists",
+      "passed": true
+    },
+    {
+      "name": "robots artifact exists",
+      "passed": true
+    },
+    {
+      "detail": "frontend/public/social-preview.svg",
+      "name": "landscape social source exists",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual": [
+          1200,
+          630
+        ],
+        "expected": [
+          1200,
+          630
+        ]
+      },
+      "name": "landscape social PNG has required dimensions",
+      "passed": true
+    },
+    {
+      "detail": "frontend/public/social-square.svg",
+      "name": "square social source exists",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual": [
+          1200,
+          1200
+        ],
+        "expected": [
+          1200,
+          1200
+        ]
+      },
+      "name": "square social PNG has required dimensions",
+      "passed": true
+    },
+    {
+      "detail": "frontend/public/social-story.svg",
+      "name": "story social source exists",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual": [
+          1080,
+          1920
+        ],
+        "expected": [
+          1080,
+          1920
+        ]
+      },
+      "name": "story social PNG has required dimensions",
+      "passed": true
+    },
+    {
+      "name": "social copy covers X, LinkedIn, and Instagram",
+      "passed": true
+    },
+    {
+      "name": "social hashtags are present",
+      "passed": true
+    },
+    {
+      "name": "X caption fits its character limit",
+      "passed": true
+    }
+  ],
+  "live_evidence_pending": [
+    "canonical HTTPS route",
+    "rendered Open Graph and X tags",
+    "public social image content types and dimensions",
+    "sitemap.xml and robots.txt HTTP 200"
+  ],
+  "missing": [],
+  "passed": true,
+  "schema_version": "product_factory.launch_distribution_verification.v1",
+  "status": "passed"
+}

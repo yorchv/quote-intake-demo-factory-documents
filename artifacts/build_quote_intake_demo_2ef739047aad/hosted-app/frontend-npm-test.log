@@ -1,0 +1,30 @@
+
+> test
+> node --test
+
+✔ public entry is a finished QuoteRivet estimate-request sheet (1.676875ms)
+✔ request route reuses the product entry with runtime config and noindex metadata (0.343583ms)
+✔ discovery contract titles and headings match every approved rendered route (0.838375ms)
+✔ root entry renders every declared resource and each retained proof source (1.503375ms)
+✔ public copy omits every phrase blocked by the verified clarity review (1.419875ms)
+✔ marketing proof footer links retained external sources without exposing source IDs (0.361292ms)
+✔ authenticated workbench uses focused modes and keeps the request context (1.042042ms)
+✔ authenticated Sign out stays labeled, high contrast, focused, and touch sized (0.709166ms)
+✔ design-contract markers stay separated by authenticated and public roots (0.197292ms)
+✔ mobile decision mode can shrink to the viewport without a min-content overflow chain (0.236583ms)
+✔ restored sessions hydrate from the same public entry rendered by the server (0.210875ms)
+✔ every blueprint panel has a product component and stable marker (0.870708ms)
+✔ visible mutations bind immutable command refs to the typed command endpoint (0.155042ms)
+✔ agent discovery includes route intent, stop, escalation, command, evidence, and handoff fields (3.098209ms)
+✔ test/next.file-preview.config.mjs (65.17625ms)
+✔ typed command call retains evidence and returns the completed state (30.21925ms)
+✔ permission denial fails closed without reporting completion (0.461042ms)
+✔ network error remains an error and cannot be mistaken for a saved result (0.160625ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 138.611959

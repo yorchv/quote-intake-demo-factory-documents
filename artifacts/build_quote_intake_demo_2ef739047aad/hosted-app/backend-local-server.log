@@ -1,0 +1,105 @@
+INFO:     Started server process [67865]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:61021 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61025 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61026 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61027 - "GET /ready HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61028 - "POST /commands/cmd_service_request_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61029 - "POST /commands/cmd_service_request_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61030 - "POST /commands/cmd_service_request_create_v1 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:61031 - "POST /records HTTP/1.1" 410 Gone
+INFO:     127.0.0.1:61032 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61033 - "GET /entities/service_request/service_request_e0e4888e97ca HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61034 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61035 - "POST /commands/cmd_service_request_create_v1 HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:61036 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61037 - "POST /commands/cmd_service_request_intake_and_qualification_requester_submits_request_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61038 - "POST /commands/cmd_service_request_intake_and_qualification_requester_submits_request_v1 HTTP/1.1" 409 Conflict
+INFO:     127.0.0.1:61039 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61040 - "POST /commands/cmd_service_request_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61041 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61042 - "POST /commands/cmd_service_request_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61043 - "DELETE /entities/service_request/service_request_e0e4888e97ca HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:61044 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61045 - "POST /commands/cmd_qualification_decision_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61046 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61047 - "POST /commands/cmd_estimator_assignment_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61048 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61049 - "POST /commands/cmd_request_evidence_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61050 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61051 - "POST /commands/cmd_operational_exception_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61052 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61053 - "POST /commands/cmd_quote_readiness_decision_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61054 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61055 - "POST /commands/cmd_quote_ready_handoff_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61056 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61057 - "POST /commands/cmd_site_visit_create_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61058 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61059 - "POST /commands/cmd_service_request_update_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61060 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61061 - "POST /commands/cmd_service_request_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61063 - "POST /commands/cmd_service_request_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61064 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61065 - "POST /commands/cmd_qualification_decision_update_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61066 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61067 - "POST /commands/cmd_qualification_decision_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61068 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61069 - "POST /commands/cmd_qualification_decision_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61070 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61071 - "POST /commands/cmd_estimator_assignment_update_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61072 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61073 - "POST /commands/cmd_estimator_assignment_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61074 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61075 - "POST /commands/cmd_estimator_assignment_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61076 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61077 - "POST /commands/cmd_request_evidence_update_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61078 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61079 - "POST /commands/cmd_request_evidence_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61080 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61081 - "POST /commands/cmd_request_evidence_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61082 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61083 - "POST /commands/cmd_operational_exception_update_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61084 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61085 - "POST /commands/cmd_operational_exception_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61086 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61087 - "POST /commands/cmd_operational_exception_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61088 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61089 - "POST /commands/cmd_quote_readiness_decision_update_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61090 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61091 - "POST /commands/cmd_quote_readiness_decision_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61092 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61093 - "POST /commands/cmd_quote_readiness_decision_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61094 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61095 - "POST /commands/cmd_quote_ready_handoff_update_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61096 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61097 - "POST /commands/cmd_quote_ready_handoff_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61098 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61099 - "POST /commands/cmd_quote_ready_handoff_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61100 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61101 - "POST /commands/cmd_site_visit_update_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61102 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61103 - "POST /commands/cmd_site_visit_archive_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61104 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61105 - "POST /commands/cmd_site_visit_restore_v1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61106 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61107 - "GET /entities/service_request HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61108 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61109 - "GET /entities/qualification_decision HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61110 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61111 - "GET /entities/estimator_assignment HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61112 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61113 - "GET /entities/request_evidence HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61114 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61115 - "GET /entities/operational_exception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61116 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61117 - "GET /entities/quote_readiness_decision HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61118 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61119 - "GET /entities/quote_ready_handoff HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61120 - "POST /auth/local-session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61121 - "GET /entities/site_visit HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [67865]

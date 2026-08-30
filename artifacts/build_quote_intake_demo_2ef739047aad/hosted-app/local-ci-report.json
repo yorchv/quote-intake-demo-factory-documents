@@ -1,0 +1,188 @@
+{
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "checks": [
+    {
+      "name": "hosted app package exists",
+      "passed": true,
+      "path": "/Users/jorgevivas/dev/product-factory-worktrees/demo-portfolio/artifacts/build_quote_intake_demo_2ef739047aad/hosted-app"
+    },
+    {
+      "name": "frontend package exists",
+      "passed": true,
+      "path": "frontend/package.json"
+    },
+    {
+      "name": "backend app exists",
+      "passed": true,
+      "path": "backend/app.py"
+    },
+    {
+      "name": "integration harness exists",
+      "passed": true,
+      "path": "scripts/local-integration.py"
+    },
+    {
+      "name": "launch distribution agent task exists",
+      "passed": true,
+      "path": "agent-tasks/launch-distribution.json"
+    },
+    {
+      "name": "launch distribution verifier exists",
+      "passed": true,
+      "path": "scripts/verify-launch-distribution.py"
+    },
+    {
+      "name": "design readiness contract exists",
+      "passed": true,
+      "path": "design-readiness-contract.json"
+    },
+    {
+      "name": "independent design review task exists",
+      "passed": true,
+      "path": "agent-tasks/design-review.json"
+    },
+    {
+      "name": "design readiness verifier exists",
+      "passed": true,
+      "path": "scripts/verify-design-readiness.py"
+    },
+    {
+      "name": "organic discovery contract exists",
+      "passed": true,
+      "path": "organic-discovery.json"
+    },
+    {
+      "name": "organic discovery review task exists",
+      "passed": true,
+      "path": "agent-tasks/organic-discovery-review.json"
+    },
+    {
+      "name": "organic discovery verifier exists",
+      "passed": true,
+      "path": "scripts/verify-organic-discovery.py"
+    },
+    {
+      "name": "organic growth learning task exists",
+      "passed": true,
+      "path": "agent-tasks/organic-growth-learning.json"
+    },
+    {
+      "name": "organic growth plan exists",
+      "passed": true,
+      "path": "organic-growth-plan.json"
+    },
+    {
+      "name": "customer clarity review task exists",
+      "passed": true,
+      "path": "agent-tasks/customer-clarity-review.json"
+    },
+    {
+      "name": "skeptical buyer review task exists",
+      "passed": true,
+      "path": "agent-tasks/skeptical-buyer-review.json"
+    },
+    {
+      "checked_paths": [
+        "/opt/homebrew/bin/npm",
+        "/usr/local/bin/npm"
+      ],
+      "command": "/opt/homebrew/bin/npm",
+      "env_override": "PRODUCT_FACTORY_NPM_COMMAND",
+      "name": "frontend npm command exists",
+      "passed": true
+    },
+    {
+      "command": "/opt/homebrew/bin/npm install",
+      "log_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/frontend-npm-install.log",
+      "name": "frontend npm install",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "up to date, audited 106 packages in 449ms\n\n16 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities"
+    },
+    {
+      "command": "/opt/homebrew/bin/npm test",
+      "log_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/frontend-npm-test.log",
+      "name": "frontend npm test",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "> test\n> node --test\n\n\u2714 public entry is a finished QuoteRivet estimate-request sheet (1.676875ms)\n\u2714 request route reuses the product entry with runtime config and noindex metadata (0.343583ms)\n\u2714 discovery contract titles and headings match every approved rendered route (0.838375ms)\n\u2714 root entry renders every declared resource and each retained proof source (1.503375ms)\n\u2714 public copy omits every phrase blocked by the verified clarity review (1.419875ms)\n\u2714 marketing proof footer links retained ext"
+    },
+    {
+      "command": "/opt/homebrew/bin/npm run build",
+      "log_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/frontend-npm-build.log",
+      "name": "frontend npm build",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "> build\n> node scripts/prepare-static-deployment.mjs && node scripts/render-social-assets.mjs && next build --webpack\n\n\u25b2 Next.js 16.3.3 (webpack)\n\u2713 Running next.config.js took 9ms\n\n  Running TypeScript ...\n  Finished TypeScript in 1ms ...\n  Creating an optimized production build ...\n\u2713 Compiled successfully in 3.2s\n  Collecting page data using 9 workers ...\n  Generating static pages using 9 workers (0/8) ...\n  Generating static pages using 9 workers (2/8) \n  Generating static pages using 9 worker"
+    },
+    {
+      "command": "/Users/jorgevivas/dev/product-factory/.venv/bin/python scripts/verify-organic-discovery.py",
+      "log_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/organic-discovery-verification.log",
+      "name": "organic discovery strategy, rendered pages, privacy, and growth plan pass",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"checks\": [{\"name\": \"organic discovery package contract exists\", \"passed\": true}, {\"name\": \"organic discovery agent task exists\", \"passed\": true}, {\"name\": \"customer clarity review task exists\", \"passed\": true}, {\"name\": \"skeptical buyer review task exists\", \"passed\": true}, {\"name\": \"organic growth learning task exists\", \"passed\": true}, {\"name\": \"organic growth plan exists\", \"passed\": true}, {\"name\": \"researched strategy schema is retained\", \"passed\": true}, {\"name\": \"architecture strategy ve"
+    },
+    {
+      "command": "/Users/jorgevivas/dev/product-factory/.venv/bin/python scripts/verify-design-readiness.py",
+      "log_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/design-readiness-verification.log",
+      "name": "independent design readiness passes",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"schema_version\": \"product_factory.design_readiness_verification.v1\",\n  \"product_id\": \"quote-intake-demo\",\n  \"build_id\": \"build_quote_intake_demo_2ef739047aad\",\n  \"status\": \"design_ready\",\n  \"passed\": true,\n  \"review_decision\": \"approved\",\n  \"verified_screenshot_count\": 4,\n  \"checks\": [\n    {\n      \"name\": \"contract is blocking\",\n      \"passed\": true,\n      \"detail\": true\n    },\n    {\n      \"name\": \"review matches product\",\n      \"passed\": true,\n      \"detail\": \"quote-intake-demo\"\n    },\n   "
+    },
+    {
+      "command": "/Users/jorgevivas/dev/product-factory/.venv/bin/python scripts/verify-launch-distribution.py",
+      "log_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/launch-distribution-verification.log",
+      "name": "launch distribution assets and metadata pass",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"checks\": [{\"name\": \"launch distribution contract exists\", \"passed\": true}, {\"name\": \"launch distribution agent task exists\", \"passed\": true}, {\"detail\": {\"length\": 52}, \"name\": \"SEO title is concise\", \"passed\": true}, {\"detail\": {\"length\": 146}, \"name\": \"SEO description is concise\", \"passed\": true}, {\"name\": \"researched or derived intent phrases are present\", \"passed\": true}, {\"name\": \"page contains rel=\\\"canonical\\\"\", \"passed\": true}, {\"name\": \"page contains name=\\\"description\\\"\", \"passed\": t"
+    },
+    {
+      "command": "/Users/jorgevivas/dev/product-factory/.venv/bin/python -m venv .venv",
+      "log_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/backend-venv-create.log",
+      "name": "backend venv create",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/Users/jorgevivas/dev/product-factory-worktrees/demo-portfolio/artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/.venv/bin/python -m pip install -q -r backend/requirements.txt",
+      "log_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/backend-requirements-install.log",
+      "name": "backend requirements install",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "[notice] A new release of pip is available: 24.3.1 -> 26.2.1\n[notice] To update, run: python -m pip install --upgrade pip",
+      "stdout": ""
+    },
+    {
+      "api_url": "http://127.0.0.1:61021",
+      "body": "{\"ok\":true,\"product_id\":\"quote-intake-demo\",\"database\":\"local_memory\",\"database_configured\":false,\"analytics\":{\"provider\":\"posthog\",\"configured\":false}}",
+      "name": "backend health passes",
+      "passed": true
+    },
+    {
+      "command": "scripts/local-integration.py",
+      "name": "backend local integration passes",
+      "passed": true,
+      "report_ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/local-integration-result.json",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"passed\": true,\n  \"check_count\": 103,\n  \"checks\": [\n    {\n      \"name\": \"persona session: office_coordinator\",\n      \"passed\": true,\n      \"detail\": \"status=200\"\n    },\n    {\n      \"name\": \"system readiness\",\n      \"passed\": true,\n      \"detail\": \"status=200 body={'ready': True, 'product_id': 'quote-intake-demo', 'executable_contract': 'product_factory.executable_product.v1'}\"\n    },\n    {\n      \"name\": \"typed create\",\n      \"passed\": true,\n      \"detail\": \"status=200 body={'state': {'activity': [{'event_name': 'service_request.create.v1', 'command_id': 'cmd_service_request_create_v1', 'entity_ref': 'service_request', 'record_id': 'service_request_e0e4888e97ca', 'user_id': 'user_office_coordinator', 'persona_id': 'office_coordinator', 'created_at': '2026-08-30T02:55:12+00:00'}], 'billing_events': [], 'entities': [{'id': 'service_request', 'name': 'Service request', 'next_action': 'Manage service request through its defined workflows.', 'risk_level': 'medium', 'status': 'active', 's"
+    }
+  ],
+  "created_at": "2026-08-30T02:55:12+00:00",
+  "missing": [],
+  "package_path": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app",
+  "passed": true,
+  "schema_version": "product_factory.hosted_app_local_ci.v1",
+  "status": "passed"
+}

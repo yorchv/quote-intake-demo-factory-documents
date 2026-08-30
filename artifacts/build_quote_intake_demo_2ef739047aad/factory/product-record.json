@@ -1,0 +1,17 @@
+{
+  "artifact_path": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app",
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "capabilities": [
+    "Record and qualify an estimate request",
+    "Prioritize and assign a qualified request",
+    "Control request and site evidence",
+    "service_request_intake_and_qualification",
+    "qualified_request_assignment",
+    "request_evidence_control"
+  ],
+  "created_at": "2026-08-29T23:55:02+00:00",
+  "name": "QuoteRivet",
+  "owner": "The office coordinator or owner who qualifies incoming work and schedules estimators without replacing the company's accounting or dispatch system",
+  "product_id": "quote-intake-demo",
+  "status": "hosted_app_local_package"
+}

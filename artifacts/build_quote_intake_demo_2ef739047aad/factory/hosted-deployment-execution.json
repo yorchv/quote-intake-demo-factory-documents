@@ -1,0 +1,69 @@
+{
+  "api_url": "https://quote-intake-demo-api-production.up.railway.app",
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "created_at": "2026-08-30T03:45:53+00:00",
+  "missing_for_live_product": [
+    "ingest accepted production evidence before claiming production_ready",
+    "return hosted InkPass auth, Postgres persistence, CORS, and production CI evidence"
+  ],
+  "mutation_allowed": true,
+  "next_commands": [
+    "PYTHONPATH=src python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts run-hosted-deploy-preflight build_quote_intake_demo_2ef739047aad",
+    "PYTHONPATH=src python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts execute-hosted-deploy build_quote_intake_demo_2ef739047aad --allow-provider-mutation",
+    "cd artifacts/build_quote_intake_demo_2ef739047aad/hosted-app && python scripts/check_launch_readiness.py --web-url https://quote-intake-demo-web.vercel.app --api-url https://quote-intake-demo-api-production.up.railway.app --json",
+    "PYTHONPATH=src python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts certify-deployable-product build_quote_intake_demo_2ef739047aad --web-url https://quote-intake-demo-web.vercel.app --api-url https://quote-intake-demo-api-production.up.railway.app"
+  ],
+  "package_path": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app",
+  "passed": true,
+  "production_ready": false,
+  "provider_commands_executed": true,
+  "provider_deploy_passed": true,
+  "schema_version": "product_factory.hosted_deployment_execution.v1",
+  "simulation_pattern_source": {
+    "production_gate": "do not claim production readiness until hosted auth, database, CORS, CI, and launch evidence are attached",
+    "railway": "Dockerfile deployment with /health healthcheck",
+    "repo": "~/dev/simulation",
+    "vercel": "web root with install/build/output configuration"
+  },
+  "status": "hosted_launch_ready_pending_production_evidence",
+  "steps": [
+    {
+      "id": "hosted_deploy_preflight",
+      "passed": true,
+      "report_ref": "artifacts/factory/hosted-deploy-preflight.json",
+      "status": "ready_for_provider_deployment"
+    },
+    {
+      "command": "railway up --ci --project 18c58081-5bb6-4bc3-b0ed-815b6422e8a8 --service quote-intake-demo-api --environment production",
+      "cwd": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/backend",
+      "id": "railway_deploy_api",
+      "passed": true,
+      "returncode": 0,
+      "status": "passed",
+      "stderr": "",
+      "stdout": "Indexing...\nUploading...\n  Build Logs: https://railway.com/project/18c58081-5bb6-4bc3-b0ed-815b6422e8a8/service/1f9fda64-1cf6-4183-b2bd-8276579c9824?id=d8182bb3-be92-4b14-84c4-5db3363e64d9&\nCI mode enabled\nfetched snapshot sha256:1705c53a2369a575791edc4620a45a9caece5848dfcd93077e39af514868d385 (80 kB bytes)\nfetching snapshot\nunpacking archive\n[internal] load build definition from Dockerfile\n[internal] load build definition from Dockerfile\n[internal] load build definition from Dockerfile\n[internal] load build definition from Dockerfile\n[internal] load metadata for docker.io/library/python:3.13-slim\nscheduling build on Metal builder \"builder-kpmtmq\"\n[internal] load metadata for docker.io/library/python:3.13-slim\n[internal] load .dockerignore\n[internal] load .dockerignore\n[internal] load .dockerignore\n[internal] load .dockerignore\nJSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 8)(https://docs.docker.com/go/dockerfile/rule/json-args-recommended/)\n details: JSON arguments recommended for ENTRYPOINT/CMD to prevent unintended behavior related to OS signals\n\n[7/7] COPY migrations ./migrations\n[6/7] COPY product_adapters ./"
+    },
+    {
+      "command": "env -u VERCEL_TOKEN -u VERCEL_TEAM_ID vercel --prod --yes --build-env NEXT_PUBLIC_PRODUCT_API_URL=https://quote-intake-demo-api-production.up.railway.app --build-env NEXT_PUBLIC_SITE_URL=https://quote-intake-demo-web.vercel.app --build-env PRODUCT_BUILD_ID=build_quote_intake_demo_2ef739047aad",
+      "cwd": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/frontend",
+      "id": "vercel_deploy_web",
+      "passed": true,
+      "returncode": 0,
+      "status": "passed",
+      "stderr": "Retrieving project\u2026\nDeploying croppia/quote-intake-demo-web\nInspect: https://vercel.com/croppia/quote-intake-demo-web/6LKCzhzAeRtnyePM55k9be2mH3c3 [862ms]\nProduction: https://quote-intake-demo-k3dcmyjpi-croppia.vercel.app [863ms]\nBuilding...\nBuilding...\nBuilding: Running build in Washington, D.C., USA (East) \u2013 iad1\nBuilding: Build machine configuration: 4 cores, 8 GB\nBuilding: Retrieving list of deployment files...\nBuilding: Downloading 105 deployment files...\nBuilding: Restored build cache from previous deployment (ubvzxDXNprJgP5MPKxrsfMtXAnSU)\nBuilding: Running \"vercel build\"\nBuilding: Vercel CLI 59.3.0\nBuilding: Installing dependencies...\nBuilding: up to date in 572ms\nBuilding: 16 packages are looking for funding\nBuilding: run `npm fund` for details\nBuilding: npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:\nBuilding: npm warn allow-scripts   core-js@3.50.0 (postinstall: node -e \"try{require('./postinstall')}catch(e){}\")\nBuilding: npm warn allow-scripts\nBuilding: npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.\nBuilding: > build\nBuilding: > node scripts/prepare-static-",
+      "stdout": "{\n  \"status\": \"ok\",\n  \"deployment\": {\n    \"id\": \"dpl_6LKCzhzAeRtnyePM55k9be2mH3c3\",\n    \"url\": \"https://quote-intake-demo-k3dcmyjpi-croppia.vercel.app\",\n    \"inspectorUrl\": \"https://vercel.com/croppia/quote-intake-demo-web/6LKCzhzAeRtnyePM55k9be2mH3c3\",\n    \"readyState\": \"READY\",\n    \"target\": \"production\",\n    \"deploymentApiUrl\": \"https://api.vercel.com/v13/deployments/dpl_6LKCzhzAeRtnyePM55k9be2mH3c3\"\n  },\n  \"message\": \"Deployment quote-intake-demo-k3dcmyjpi-croppia.vercel.app ready.\",\n  \"next\": [\n    {\n      \"command\": \"vercel inspect quote-intake-demo-k3dcmyjpi-croppia.vercel.app\",\n      \"when\": \"Inspect deployment\"\n    },\n    {\n      \"command\": \"vercel deploy --prod\",\n      \"when\": \"Promote to production\"\n    }\n  ]\n}"
+    },
+    {
+      "command": "python scripts/check_launch_readiness.py --web-url https://quote-intake-demo-web.vercel.app --api-url https://quote-intake-demo-api-production.up.railway.app --json",
+      "cwd": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app",
+      "id": "hosted_launch_readiness",
+      "passed": true,
+      "returncode": 0,
+      "status": "passed",
+      "stderr": "",
+      "stdout": "{\n  \"checks\": [\n    {\n      \"passed\": true,\n      \"status_code\": 200,\n      \"url\": \"https://quote-intake-demo-web.vercel.app/\"\n    },\n    {\n      \"passed\": true,\n      \"status_code\": 200,\n      \"url\": \"https://quote-intake-demo-api-production.up.railway.app/health\"\n    }\n  ],\n  \"passed\": true\n}"
+    }
+  ],
+  "vercel_project": "quote-intake-demo-web",
+  "web_url": "https://quote-intake-demo-web.vercel.app"
+}

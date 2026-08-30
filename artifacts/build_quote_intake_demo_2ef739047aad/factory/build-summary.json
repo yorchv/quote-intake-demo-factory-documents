@@ -1,0 +1,29 @@
+{
+  "artifact_path": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app",
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "created_at": "2026-08-29T23:55:02+00:00",
+  "missing": [
+    "local hosted app integration run",
+    "Postgres-backed workflow proof",
+    "InkPass production auth evidence",
+    "launch distribution agent verification and live rich-preview/search proof",
+    "independent rendered organic-discovery and privacy review",
+    "independent desktop/mobile design-readiness review",
+    "Codex-composed executable experience and browser journey proof"
+  ],
+  "product_id": "quote-intake-demo",
+  "product_name": "QuoteRivet",
+  "records": {
+    "generation": "artifacts/build_quote_intake_demo_2ef739047aad/factory/generation-contract.json",
+    "hosted_deploy_preflight": "artifacts/factory/hosted-deploy-preflight.json",
+    "hosted_deploy_preflight_markdown": "artifacts/factory/hosted-deploy-preflight.md",
+    "hosted_deployment_execution": "artifacts/factory/hosted-deployment-execution.json",
+    "hosted_deployment_execution_markdown": "artifacts/factory/hosted-deployment-execution.md",
+    "product_architecture_verification": "artifacts/build_quote_intake_demo_2ef739047aad/spec/product-architecture-verification.json",
+    "product_record": "artifacts/build_quote_intake_demo_2ef739047aad/factory/product-record.json",
+    "product_spec": "artifacts/build_quote_intake_demo_2ef739047aad/spec/product-spec.json",
+    "spec_validation": "artifacts/build_quote_intake_demo_2ef739047aad/spec/spec-validation.json"
+  },
+  "schema_version": "product_factory.hosted_app_build_summary.v1",
+  "status": "passed"
+}

@@ -1,0 +1,102 @@
+{
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "checks": [
+    {
+      "name": "product id provided",
+      "passed": true,
+      "product_id": "quote-intake-demo"
+    },
+    {
+      "client_slug": "quote-intake-demo",
+      "name": "client slug is valid",
+      "passed": true
+    },
+    {
+      "inkpass_url_configured": true,
+      "name": "INKPASS_URL configured with https",
+      "passed": true,
+      "url_shape": "https://ink.wendellai.com"
+    },
+    {
+      "name": "InkPass service API key configured",
+      "passed": true,
+      "secret_env": "INKPASS_INTERNAL_SERVICE_API_KEY_or_PRODUCT_INKPASS_SERVICE_API_KEY_or_INKPASS_SERVICE_API_KEY"
+    },
+    {
+      "error": null,
+      "name": "InkPass internal clients route reachable",
+      "passed": true,
+      "status_code": 200
+    },
+    {
+      "name": "InkPass internal clients auth accepted",
+      "passed": true,
+      "status_code": 200
+    },
+    {
+      "error": null,
+      "name": "InkPass product client created",
+      "passed": true,
+      "status_code": 201
+    },
+    {
+      "client_slug": "quote-intake-demo",
+      "existed_before_create": false,
+      "name": "InkPass product client exists",
+      "passed": true
+    },
+    {
+      "error": null,
+      "name": "InkPass client auth route exists",
+      "passed": true,
+      "status_code": 422
+    }
+  ],
+  "client": {
+    "exists": true,
+    "id": "70bcfe35-66fa-462f-9579-3a378619c9de",
+    "name": "QuoteRivet",
+    "slug": "quote-intake-demo",
+    "status": "active"
+  },
+  "client_slug": "quote-intake-demo",
+  "create_if_missing": true,
+  "created_at": "2026-08-30T03:25:52+00:00",
+  "env_contract": {
+    "INKPASS_CLIENT_SLUG": "quote-intake-demo",
+    "INKPASS_URL": "https://ink.wendellai.com",
+    "INKPASS_USERINFO_URL": "https://ink.wendellai.com/api/v1/auth/me",
+    "NEXT_PUBLIC_INKPASS_CLIENT_SLUG": "quote-intake-demo",
+    "PRODUCT_INKPASS_CLIENT_SLUG": "quote-intake-demo"
+  },
+  "http": {
+    "auth_route_probe": {
+      "route_exists": true,
+      "status_code": 422
+    },
+    "create_client": {
+      "created": true,
+      "status_code": 201
+    },
+    "list_clients": {
+      "auth_accepted": true,
+      "client_count": 10,
+      "route_exists": true,
+      "status_code": 200
+    }
+  },
+  "inkpass_url_shape": "https://ink.wendellai.com",
+  "missing": [],
+  "next_commands": [
+    "export INKPASS_CLIENT_SLUG=quote-intake-demo",
+    "export PRODUCT_INKPASS_CLIENT_SLUG=quote-intake-demo",
+    "PYTHONPATH=src python3 -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts provision-inkpass-product-client --product-id quote-intake-demo --build-id build_quote_intake_demo_2ef739047aad"
+  ],
+  "passed": true,
+  "product_id": "quote-intake-demo",
+  "product_name": "QuoteRivet",
+  "production_ready": false,
+  "schema_version": "product_factory.inkpass_product_client_provisioning.v1",
+  "secrets_redacted": true,
+  "status": "client_provisioned"
+}

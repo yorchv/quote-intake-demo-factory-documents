@@ -1,0 +1,301 @@
+{
+  "checks": [
+    {
+      "name": "organic discovery package contract exists",
+      "passed": true
+    },
+    {
+      "name": "organic discovery agent task exists",
+      "passed": true
+    },
+    {
+      "name": "customer clarity review task exists",
+      "passed": true
+    },
+    {
+      "name": "skeptical buyer review task exists",
+      "passed": true
+    },
+    {
+      "name": "organic growth learning task exists",
+      "passed": true
+    },
+    {
+      "name": "organic growth plan exists",
+      "passed": true
+    },
+    {
+      "name": "researched strategy schema is retained",
+      "passed": true
+    },
+    {
+      "name": "architecture strategy verification is retained",
+      "passed": true
+    },
+    {
+      "name": "independent rendered review approved",
+      "passed": true
+    },
+    {
+      "detail": [
+        "/",
+        "/estimate-request-intake",
+        "/quote-ready-checklist",
+        "/site-visit-handoff",
+        "/works-with-your-tools"
+      ],
+      "name": "public page routes are unique and include root",
+      "passed": true
+    },
+    {
+      "detail": [
+        "QuoteRivet | Estimate Request Intake for Contractors",
+        "Estimate request intake for contractors | QuoteRivet",
+        "Estimate details checklist for service requests | QuoteRivet",
+        "Site-visit handoff for estimates | QuoteRivet",
+        "Focused quote intake beside your current tools | QuoteRivet"
+      ],
+      "name": "public page titles are unique and concise",
+      "passed": true
+    },
+    {
+      "detail": [
+        "Organize estimate requests, site details, and accountable estimator handoffs in one focused path without replacing accounting or dispatch.",
+        "Use one review queue for estimate requests from calls, messages, email, and forms while preserving the original source and human decision.",
+        "Check contact details, job information, photos, measurements, site facts, and open questions before a human quote-ready decision.",
+        "Coordinate a visit window, accountable estimator, field checklist, and current evidence before quote-readiness review.",
+        "See where QuoteRivet fits beside accounting and dispatch: request review, site evidence, readiness decisions, and a bounded handoff."
+      ],
+      "name": "public page descriptions are unique and concise",
+      "passed": true
+    },
+    {
+      "detail": [
+        "Send the job details once and see who will review them next.",
+        "Organize every estimate request before assignment",
+        "Check the details before preparing a quote",
+        "Keep every site-visit detail with the estimate request",
+        "Keep estimate requests organized alongside your current tools"
+      ],
+      "name": "public page headings are unique",
+      "passed": true
+    },
+    {
+      "detail": "every public route must pass first-read comprehension with no unexplained terms",
+      "name": "independent customer clarity review approved",
+      "passed": true
+    },
+    {
+      "detail": "every public route must state a concrete customer outcome and retain support for material claims",
+      "name": "independent skeptical buyer review approved",
+      "passed": true
+    },
+    {
+      "name": "/ sitemap policy is safe",
+      "passed": true
+    },
+    {
+      "detail": [
+        "/estimate-request-intake",
+        "/quote-ready-checklist",
+        "/site-visit-handoff",
+        "/works-with-your-tools"
+      ],
+      "name": "/ internal links resolve",
+      "passed": true
+    },
+    {
+      "name": "/ structured data is declared",
+      "passed": true
+    },
+    {
+      "name": "/ appears in sitemap source",
+      "passed": true
+    },
+    {
+      "name": "/estimate-request-intake sitemap policy is safe",
+      "passed": true
+    },
+    {
+      "detail": [
+        "/",
+        "/quote-ready-checklist",
+        "/site-visit-handoff"
+      ],
+      "name": "/estimate-request-intake internal links resolve",
+      "passed": true
+    },
+    {
+      "name": "/estimate-request-intake structured data is declared",
+      "passed": true
+    },
+    {
+      "name": "/estimate-request-intake server-rendered source exists",
+      "passed": true
+    },
+    {
+      "name": "/estimate-request-intake appears in sitemap source",
+      "passed": true
+    },
+    {
+      "name": "/quote-ready-checklist sitemap policy is safe",
+      "passed": true
+    },
+    {
+      "detail": [
+        "/",
+        "/estimate-request-intake",
+        "/site-visit-handoff"
+      ],
+      "name": "/quote-ready-checklist internal links resolve",
+      "passed": true
+    },
+    {
+      "name": "/quote-ready-checklist structured data is declared",
+      "passed": true
+    },
+    {
+      "name": "/quote-ready-checklist server-rendered source exists",
+      "passed": true
+    },
+    {
+      "name": "/quote-ready-checklist appears in sitemap source",
+      "passed": true
+    },
+    {
+      "name": "/site-visit-handoff sitemap policy is safe",
+      "passed": true
+    },
+    {
+      "detail": [
+        "/",
+        "/estimate-request-intake",
+        "/quote-ready-checklist"
+      ],
+      "name": "/site-visit-handoff internal links resolve",
+      "passed": true
+    },
+    {
+      "name": "/site-visit-handoff structured data is declared",
+      "passed": true
+    },
+    {
+      "name": "/site-visit-handoff server-rendered source exists",
+      "passed": true
+    },
+    {
+      "name": "/site-visit-handoff appears in sitemap source",
+      "passed": true
+    },
+    {
+      "name": "/works-with-your-tools sitemap policy is safe",
+      "passed": true
+    },
+    {
+      "detail": [
+        "/",
+        "/estimate-request-intake",
+        "/quote-ready-checklist",
+        "/site-visit-handoff"
+      ],
+      "name": "/works-with-your-tools internal links resolve",
+      "passed": true
+    },
+    {
+      "name": "/works-with-your-tools structured data is declared",
+      "passed": true
+    },
+    {
+      "name": "/works-with-your-tools server-rendered source exists",
+      "passed": true
+    },
+    {
+      "name": "/works-with-your-tools appears in sitemap source",
+      "passed": true
+    },
+    {
+      "detail": [],
+      "name": "private routes are excluded from public page contract",
+      "passed": true
+    },
+    {
+      "name": "private route responses carry noindex headers",
+      "passed": true
+    },
+    {
+      "name": "robots separates ChatGPT search from model training policy",
+      "passed": true
+    },
+    {
+      "name": "root metadata avoids obsolete meta keywords",
+      "passed": true
+    },
+    {
+      "name": "root structured data contains '@type': 'Organization'",
+      "passed": true
+    },
+    {
+      "name": "root structured data contains '@type': 'WebSite'",
+      "passed": true
+    },
+    {
+      "name": "root structured data contains '@type': 'WebPage'",
+      "passed": true
+    },
+    {
+      "name": "sitemap does not manufacture lastmod at request time",
+      "passed": true
+    },
+    {
+      "name": "llms.txt is not a required launch artifact",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual": [
+          "/",
+          "/estimate-request-intake",
+          "/quote-ready-checklist",
+          "/site-visit-handoff",
+          "/works-with-your-tools"
+        ],
+        "expected": [
+          "/",
+          "/estimate-request-intake",
+          "/quote-ready-checklist",
+          "/site-visit-handoff",
+          "/works-with-your-tools"
+        ]
+      },
+      "name": "independent review covers every public route",
+      "passed": true
+    }
+  ],
+  "live_evidence_pending": [
+    "crawler reachability through CDN and bot protection",
+    "rendered canonical, robots, and structured data",
+    "sitemap and robots HTTP 200",
+    "search engine property verification and sitemap submission",
+    "post-launch indexing, query, AI referral, conversion, and commercial evidence"
+  ],
+  "missing": [],
+  "passed": true,
+  "product_id": "quote-intake-demo",
+  "public_routes": [
+    "/",
+    "/estimate-request-intake",
+    "/quote-ready-checklist",
+    "/site-visit-handoff",
+    "/works-with-your-tools"
+  ],
+  "required": true,
+  "schema_version": "product_factory.organic_discovery_verification.v1",
+  "sitemap_routes": [
+    "/",
+    "/estimate-request-intake",
+    "/quote-ready-checklist",
+    "/site-visit-handoff",
+    "/works-with-your-tools"
+  ],
+  "status": "passed"
+}

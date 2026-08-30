@@ -1,0 +1,75 @@
+{
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "created_at": "2026-08-30T03:25:21.392011+00:00",
+  "package": {
+    "build_id": "build_quote_intake_demo_2ef739047aad",
+    "copied_source_file_count": 137,
+    "created_at": "2026-08-30T03:25:20.202833+00:00",
+    "file_count": 143,
+    "license_profile": "proprietary_internal_use_v1",
+    "licensor": "Jorge Vivas",
+    "local_ci": {
+      "passed": true,
+      "ref": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/local-ci-report.json",
+      "status": "passed"
+    },
+    "normalized_factory_artifact_loader_count": 0,
+    "organization": "yorchv",
+    "package_root": "artifacts/build_quote_intake_demo_2ef739047aad/repository-publication/source",
+    "passed": true,
+    "product_id": "quote-intake-demo",
+    "product_name": "QuoteRivet",
+    "production_readiness_note": "Repository publication is source provenance, not live production evidence.",
+    "production_ready": false,
+    "repository": "quote-intake-demo",
+    "repository_digest": "sha256:41f087c459224e0404663c68c64b989ff5d35a58c711881bf1e391ffd97af3be",
+    "schema_version": "product_factory.repository_package.v1",
+    "secret_scan": {
+      "findings": [],
+      "passed": true
+    },
+    "source_package_digest": "sha256:c816e7dfc2071490d0194158be7e58ef0fa5b27942e4afe58dacba42ee464b15",
+    "status": "ready",
+    "visibility": "private"
+  },
+  "passed": true,
+  "production_ready": false,
+  "provider": {
+    "app": {
+      "actor": "yorchv",
+      "credential_source": "github_cli",
+      "membership": {
+        "namespace_kind": "authenticated_user",
+        "role": "owner",
+        "state": "active"
+      },
+      "missing": [],
+      "organization": "yorchv",
+      "passed": true,
+      "status": "ready",
+      "token_retained": false
+    },
+    "collision": false,
+    "installation_token": {
+      "credential_source": "github_cli",
+      "token_retained": false
+    },
+    "missing": [],
+    "passed": true,
+    "repository": {
+      "clone_url": "https://github.com/yorchv/quote-intake-demo.git",
+      "default_branch": "main",
+      "full_name": "yorchv/quote-intake-demo",
+      "html_url": "https://github.com/yorchv/quote-intake-demo",
+      "id": 1351072135,
+      "name": "quote-intake-demo",
+      "node_id": "R_kgDOUIe5hw",
+      "owner": "yorchv",
+      "private": true,
+      "visibility": "private"
+    },
+    "status": "ready"
+  },
+  "schema_version": "product_factory.repository_publication_preflight.v1",
+  "status": "ready"
+}

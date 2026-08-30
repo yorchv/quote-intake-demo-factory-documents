@@ -1,0 +1,29 @@
+{
+  "browser_rendered_routes_ref": "copy-review-evidence/browser-rendered-routes.json",
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "customer_clarity_review": {
+    "decision": "approved",
+    "ref": "customer-clarity-review.json",
+    "reviewer_agent_id": "customer_clarity_review_agent",
+    "status": "verified"
+  },
+  "product_id": "quote-intake-demo",
+  "routes": [
+    {"route": "/", "desktop_full": "copy-review-evidence/home-desktop-full.png", "mobile_full": "copy-review-evidence/home-mobile-full.png"},
+    {"route": "/estimate-request-intake", "desktop_full": "copy-review-evidence/estimate-request-intake-desktop-full.png", "mobile_full": "copy-review-evidence/estimate-request-intake-mobile-full.png"},
+    {"route": "/quote-ready-checklist", "desktop_full": "copy-review-evidence/quote-ready-checklist-desktop-full.png", "mobile_full": "copy-review-evidence/quote-ready-checklist-mobile-full.png"},
+    {"route": "/site-visit-handoff", "desktop_full": "copy-review-evidence/site-visit-handoff-desktop-full.png", "mobile_full": "copy-review-evidence/site-visit-handoff-mobile-full.png"},
+    {"route": "/works-with-your-tools", "desktop_full": "copy-review-evidence/works-with-your-tools-desktop-full.png", "mobile_full": "copy-review-evidence/works-with-your-tools-mobile-full.png"}
+  ],
+  "schema_version": "product_factory.copy_review_evidence_manifest.v1",
+  "skeptical_buyer_review": {
+    "decision": "approved",
+    "ref": "skeptical-buyer-review.json",
+    "reviewer_agent_id": "skeptical_buyer_review_agent",
+    "status": "verified"
+  },
+  "viewports": {
+    "desktop": [1440, 1000],
+    "mobile": [390, 844]
+  }
+}

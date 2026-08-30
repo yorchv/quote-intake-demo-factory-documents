@@ -1,0 +1,97 @@
+{
+  "browser_runtime": "agent-browser 0.26.0 via root-managed localhost preview",
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "crawler_evidence": {
+    "gptbot": "Disallow: /",
+    "oai_searchbot": "Allow public routes and disallow private route prefixes",
+    "robots_ref": "frontend/public/robots.txt",
+    "robots_status": 200,
+    "sitemap_ref": "frontend/public/sitemap.xml",
+    "sitemap_routes": [
+      "/",
+      "/estimate-request-intake",
+      "/quote-ready-checklist",
+      "/site-visit-handoff",
+      "/works-with-your-tools"
+    ],
+    "sitemap_status": 200
+  },
+  "private_route_probes": [
+    {"route": "/request", "surface": "anonymous_conversion_form", "http_status": 200, "meta_robots": "noindex,nofollow,noarchive", "absent_from_sitemap": true, "robots_disallowed": true},
+    {"route": "/owner", "surface": "not_exposed_frontend_route", "http_status": 404, "deployment_x_robots_tag": "noindex, nofollow, noarchive", "absent_from_sitemap": true, "robots_disallowed": true},
+    {"route": "/settings", "surface": "not_exposed_frontend_route", "http_status": 404, "deployment_x_robots_tag": "noindex, nofollow, noarchive", "absent_from_sitemap": true, "robots_disallowed": true},
+    {"route": "/requests/example", "surface": "not_exposed_frontend_route", "http_status": 404, "deployment_x_robots_tag": "noindex, nofollow, noarchive", "absent_from_sitemap": true, "robots_disallowed": true}
+  ],
+  "authenticated_api_probes": [
+    {"endpoint": "/state", "actor": "anonymous", "http_status": 401, "detail": "Missing bearer token"},
+    {"endpoint": "/agent-interface", "actor": "anonymous", "http_status": 401, "detail": "Missing bearer token"},
+    {"endpoint": "/owner-report", "actor": "anonymous", "http_status": 401, "detail": "Missing bearer token"},
+    {"endpoint": "/owner-report", "actor": "office_coordinator", "http_status": 403, "detail": "Owner report requires InkPass RBAC permission product_owner:read"}
+  ],
+  "authorization_runtime": "generated FastAPI application on root-managed localhost preview",
+  "product_id": "quote-intake-demo",
+  "public_routes": [
+    {
+      "canonical": "http://localhost:3000/",
+      "h1": "Send the job details once and see who will review them next.",
+      "http_status": 200,
+      "internal_links": ["/estimate-request-intake", "/quote-ready-checklist", "/site-visit-handoff", "/works-with-your-tools"],
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "route": "/",
+      "source_links": ["https://help.getjobber.com/en/articles/request-basics/", "https://support.google.com/localservices/answer/6224859?hl=en", "https://www.housecallpro.com/features/"],
+      "structured_data_scripts": 1,
+      "structured_data_types": ["Organization", "WebSite", "WebPage", "SoftwareApplication"],
+      "title": "QuoteRivet | Estimate Request Intake for Contractors"
+    },
+    {
+      "canonical": "http://localhost:3000/estimate-request-intake",
+      "h1": "Organize every estimate request before assignment",
+      "http_status": 200,
+      "internal_links": ["/", "/quote-ready-checklist", "/site-visit-handoff"],
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "route": "/estimate-request-intake",
+      "source_links": ["https://help.getjobber.com/en/articles/request-basics/", "https://support.google.com/localservices/answer/6224859?hl=en"],
+      "structured_data_scripts": 1,
+      "structured_data_types": ["WebPage", "Article", "BreadcrumbList"],
+      "title": "Estimate request intake for contractors | QuoteRivet"
+    },
+    {
+      "canonical": "http://localhost:3000/quote-ready-checklist",
+      "h1": "Check the details before preparing a quote",
+      "http_status": 200,
+      "internal_links": ["/", "/estimate-request-intake", "/site-visit-handoff"],
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "route": "/quote-ready-checklist",
+      "source_links": ["https://help.getjobber.com/en/articles/request-basics/"],
+      "structured_data_scripts": 1,
+      "structured_data_types": ["WebPage", "Article", "BreadcrumbList"],
+      "title": "Estimate details checklist for service requests | QuoteRivet"
+    },
+    {
+      "canonical": "http://localhost:3000/site-visit-handoff",
+      "h1": "Keep every site-visit detail with the estimate request",
+      "http_status": 200,
+      "internal_links": ["/", "/estimate-request-intake", "/quote-ready-checklist"],
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "route": "/site-visit-handoff",
+      "source_links": ["https://help.getjobber.com/en/articles/request-basics/"],
+      "structured_data_scripts": 1,
+      "structured_data_types": ["WebPage", "Article", "BreadcrumbList"],
+      "title": "Site-visit handoff for estimates | QuoteRivet"
+    },
+    {
+      "canonical": "http://localhost:3000/works-with-your-tools",
+      "h1": "Keep estimate requests organized alongside your current tools",
+      "http_status": 200,
+      "internal_links": ["/", "/estimate-request-intake", "/quote-ready-checklist", "/site-visit-handoff"],
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "route": "/works-with-your-tools",
+      "source_links": [],
+      "structured_data_scripts": 1,
+      "structured_data_types": ["WebPage", "SoftwareApplication", "BreadcrumbList"],
+      "title": "Focused quote intake beside your current tools | QuoteRivet"
+    }
+  ],
+  "rendered_evidence_ref": "copy-review-evidence/manifest.json",
+  "schema_version": "product_factory.organic_http_evidence_manifest.v1"
+}

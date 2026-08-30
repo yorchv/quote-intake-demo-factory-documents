@@ -1,0 +1,26 @@
+{
+  "api": {
+    "mode": "dedicated_sleeping_service",
+    "provider": "railway",
+    "serverless_configuration": "provider_service_setting",
+    "sleep_when_idle": true
+  },
+  "database": {
+    "isolation": "role_and_schema",
+    "mode": "shared_postgres_role_and_schema",
+    "provider": "postgres"
+  },
+  "frontend": {
+    "idle_compute": false,
+    "project_mode": "dedicated_per_product",
+    "provider": "vercel",
+    "runtime": "static_export"
+  },
+  "promotion": {
+    "dedicated_database": "security, reliability, scale, or contractual isolation requires it",
+    "incubation_to_traction": "sustained usage, isolation, or API load justifies a dedicated service",
+    "traction_to_production": "reliability, security, latency, or customer commitments justify always-on capacity"
+  },
+  "schema_version": "product_factory.deployment_topology.v1",
+  "tier": "incubation"
+}

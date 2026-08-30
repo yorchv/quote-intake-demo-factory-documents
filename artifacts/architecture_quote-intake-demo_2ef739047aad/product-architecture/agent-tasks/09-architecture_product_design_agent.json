@@ -1,0 +1,102 @@
+{
+  "build": {
+    "build_id": "architecture_quote-intake-demo_2ef739047aad",
+    "product_id": "quote-intake-demo",
+    "product_name": "Quote Intake Demo"
+  },
+  "context": {
+    "allowed_scope": [
+      "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+      "artifacts/factory/product-architecture/quote-intake-demo"
+    ],
+    "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+    "context_refs": [
+      "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+      "config/common-sop-library.json",
+      "docs/sop-first-product-architecture-contract.md",
+      "docs/organic-discovery-contract.md"
+    ],
+    "focus": "Translate verified workflows into a customer mental model and a machine-readable agent interface. Own the language system, first success, route copy, intent and command discovery, experience thesis, signature interactions, composition, states, and accessibility.",
+    "forbidden_scope": [
+      "deleting or replacing prior architecture artifacts",
+      "destructive data migration",
+      "design work before workflow contracts pass",
+      "invented production evidence",
+      "invented market demand, search volume, customers, reviews, rankings, backlinks, citations, or performance",
+      "mass-generated public pages or keyword permutations",
+      "raw secret persistence"
+    ],
+    "output_contract": {
+      "agent_evidence": {
+        "agent_id": "product_design_agent",
+        "checks_failed": [],
+        "checks_passed": "non_empty_scoped_checks",
+        "section": "agent_evidence",
+        "status": "done"
+      },
+      "authored_by": "product_design_agent",
+      "definition_of_done": [
+        "Every customer route maps to personas, workflows, and a primary job.",
+        "Primary actions map to defined workflow transitions or CRUD operations.",
+        "Every route action binds to an immutable executable_product command_ref; labels do not determine behavior.",
+        "Loading, empty, error, blocked, and completed states are specified.",
+        "Every customer route contains finished customer_copy for navigation, orientation, primary, empty, error, blocked, and completed states.",
+        "The language system defines first-run success, customer vocabulary, terms to avoid, plain-language definitions, and voice principles.",
+        "The agent interface maps every route intent to required context, exact command_refs, success evidence, stop conditions, escalation conditions, and handoff fields.",
+        "A versioned distinctive-design contract defines an experience thesis, signature interactions, visual language, public and authenticated composition, and anti-template constraints.",
+        "An executable experience blueprint defines the primary task, product-specific panel composition, signature components, command-bound journeys, required component files, and browser evidence.",
+        "The product passes a silhouette test: its primary screen remains distinguishable from a generic SaaS dashboard when copy, name, and logo are hidden.",
+        "No screen exists solely to display implementation or factory metadata.",
+        "After the owned section passes, append or update agent_evidence for product_design_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+      ],
+      "schema_version": "product_factory.product_architecture.v1",
+      "section": "product_design"
+    },
+    "output_section": "product_design",
+    "phase": {
+      "id": "product_design",
+      "ordered_method": [
+        "market_strategy",
+        "personas_and_sops",
+        "data_model",
+        "product_workflows",
+        "product_design"
+      ]
+    },
+    "verification_commands": [
+      "PYTHONPATH=src .venv/bin/python -m product_factory_runtime --db data/factory.sqlite3 --artifacts artifacts verify-product-architecture --spec <spec-path> --architecture artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+    ]
+  },
+  "created_at": "2026-08-29T21:51:27+00:00",
+  "protocol": "product_factory.agent_task.v1",
+  "schema_version": "product_factory.agent_task.v1",
+  "task": {
+    "acceptance_criteria": [
+      "Every customer route maps to personas, workflows, and a primary job.",
+      "Primary actions map to defined workflow transitions or CRUD operations.",
+      "Every route action binds to an immutable executable_product command_ref; labels do not determine behavior.",
+      "Loading, empty, error, blocked, and completed states are specified.",
+      "Every customer route contains finished customer_copy for navigation, orientation, primary, empty, error, blocked, and completed states.",
+      "The language system defines first-run success, customer vocabulary, terms to avoid, plain-language definitions, and voice principles.",
+      "The agent interface maps every route intent to required context, exact command_refs, success evidence, stop conditions, escalation conditions, and handoff fields.",
+      "A versioned distinctive-design contract defines an experience thesis, signature interactions, visual language, public and authenticated composition, and anti-template constraints.",
+      "An executable experience blueprint defines the primary task, product-specific panel composition, signature components, command-bound journeys, required component files, and browser evidence.",
+      "The product passes a silhouette test: its primary screen remains distinguishable from a generic SaaS dashboard when copy, name, and logo are hidden.",
+      "No screen exists solely to display implementation or factory metadata.",
+      "After the owned section passes, append or update agent_evidence for product_design_agent with status done, at least one scoped check in checks_passed, and an empty checks_failed list. Unfinished downstream stages are dependencies, not failures of this task."
+    ],
+    "action": "author_or_verify_product_architecture_section",
+    "agent_id": "product_design_agent",
+    "allowed_scope": [
+      "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json"
+    ],
+    "build_id": "architecture_quote-intake-demo_2ef739047aad",
+    "dependencies": [
+      "workflow_architect_agent"
+    ],
+    "execution_sandbox": "workspace-write",
+    "role": "product_design_agent",
+    "task_id": "architecture_product_design_agent",
+    "title": "Design a distinctive product experience around verified workflows"
+  }
+}

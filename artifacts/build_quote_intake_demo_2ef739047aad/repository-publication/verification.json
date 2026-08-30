@@ -1,0 +1,54 @@
+{
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "created_at": "2026-08-30T03:25:28.621816+00:00",
+  "expected_digest": "sha256:41f087c459224e0404663c68c64b989ff5d35a58c711881bf1e391ffd97af3be",
+  "organization": "yorchv",
+  "passed": true,
+  "production_ready": false,
+  "provider": {
+    "branch": "main",
+    "commit_sha": "eaa15844e42f3d6f1b5b135ea8bdb93ff73c813e",
+    "expected_digest": "sha256:41f087c459224e0404663c68c64b989ff5d35a58c711881bf1e391ffd97af3be",
+    "installation_token": {
+      "credential_source": "github_cli",
+      "token_retained": false
+    },
+    "lineage": {
+      "build_id": "build_quote_intake_demo_2ef739047aad",
+      "generator_package_schema": "product_factory.hosted_app_package.v1",
+      "license": {
+        "copyright_year": 2026,
+        "licensor": "Jorge Vivas",
+        "profile": "proprietary_internal_use_v1"
+      },
+      "product_id": "quote-intake-demo",
+      "product_name": "QuoteRivet",
+      "repository": {
+        "name": "quote-intake-demo",
+        "organization": "yorchv",
+        "visibility": "private"
+      },
+      "schema_version": "product_factory.product_repository_lineage.v1",
+      "source_package_digest": "sha256:c816e7dfc2071490d0194158be7e58ef0fa5b27942e4afe58dacba42ee464b15"
+    },
+    "missing": [],
+    "passed": true,
+    "repository": {
+      "clone_url": "https://github.com/yorchv/quote-intake-demo.git",
+      "default_branch": "main",
+      "full_name": "yorchv/quote-intake-demo",
+      "html_url": "https://github.com/yorchv/quote-intake-demo",
+      "id": 1351072135,
+      "name": "quote-intake-demo",
+      "node_id": "R_kgDOUIe5hw",
+      "owner": "yorchv",
+      "private": true,
+      "visibility": "private"
+    },
+    "repository_digest": "sha256:41f087c459224e0404663c68c64b989ff5d35a58c711881bf1e391ffd97af3be",
+    "status": "verified"
+  },
+  "repository": "quote-intake-demo",
+  "schema_version": "product_factory.repository_publication_verification.v1",
+  "status": "verified"
+}

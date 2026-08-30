@@ -1,0 +1,43 @@
+{
+  "browser_runtime": "agent-browser 0.26.0 via root-managed localhost preview",
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "product_id": "quote-intake-demo",
+  "routes": [
+    {
+      "route": "/",
+      "title": "QuoteRivet | Estimate Request Intake for Contractors",
+      "h1": "Send the job details once and see who will review them next.",
+      "desktop": {"viewport": [1440, 1000], "scroll_width": 1440, "scroll_height": 1676, "screenshot": "copy-review-evidence/home-desktop.png", "full_page_screenshot": "copy-review-evidence/home-desktop-full.png"},
+      "mobile": {"viewport": [390, 844], "scroll_width": 390, "scroll_height": 2497, "screenshot": "copy-review-evidence/home-mobile.png", "full_page_screenshot": "copy-review-evidence/home-mobile-full.png"}
+    },
+    {
+      "route": "/estimate-request-intake",
+      "title": "Estimate request intake for contractors | QuoteRivet",
+      "h1": "Organize every estimate request before assignment",
+      "desktop": {"viewport": [1440, 1000], "scroll_width": 1440, "scroll_height": 1143, "screenshot": "copy-review-evidence/estimate-request-intake-desktop.png", "full_page_screenshot": "copy-review-evidence/estimate-request-intake-desktop-full.png"},
+      "mobile": {"viewport": [390, 844], "scroll_width": 390, "scroll_height": 1448, "screenshot": "copy-review-evidence/estimate-request-intake-mobile.png", "full_page_screenshot": "copy-review-evidence/estimate-request-intake-mobile-full.png"}
+    },
+    {
+      "route": "/quote-ready-checklist",
+      "title": "Estimate details checklist for service requests | QuoteRivet",
+      "h1": "Check the details before preparing a quote",
+      "desktop": {"viewport": [1440, 1000], "scroll_width": 1440, "scroll_height": 1153, "screenshot": "copy-review-evidence/quote-ready-checklist-desktop.png", "full_page_screenshot": "copy-review-evidence/quote-ready-checklist-desktop-full.png"},
+      "mobile": {"viewport": [390, 844], "scroll_width": 390, "scroll_height": 1398, "screenshot": "copy-review-evidence/quote-ready-checklist-mobile.png", "full_page_screenshot": "copy-review-evidence/quote-ready-checklist-mobile-full.png"}
+    },
+    {
+      "route": "/site-visit-handoff",
+      "title": "Site-visit handoff for estimates | QuoteRivet",
+      "h1": "Keep every site-visit detail with the estimate request",
+      "desktop": {"viewport": [1440, 1000], "scroll_width": 1440, "scroll_height": 1191, "screenshot": "copy-review-evidence/site-visit-handoff-desktop.png", "full_page_screenshot": "copy-review-evidence/site-visit-handoff-desktop-full.png"},
+      "mobile": {"viewport": [390, 844], "scroll_width": 390, "scroll_height": 1526, "screenshot": "copy-review-evidence/site-visit-handoff-mobile.png", "full_page_screenshot": "copy-review-evidence/site-visit-handoff-mobile-full.png"}
+    },
+    {
+      "route": "/works-with-your-tools",
+      "title": "Focused quote intake beside your current tools | QuoteRivet",
+      "h1": "Keep estimate requests organized alongside your current tools",
+      "desktop": {"viewport": [1440, 1000], "scroll_width": 1440, "scroll_height": 1311, "screenshot": "copy-review-evidence/works-with-your-tools-desktop.png", "full_page_screenshot": "copy-review-evidence/works-with-your-tools-desktop-full.png"},
+      "mobile": {"viewport": [390, 844], "scroll_width": 390, "scroll_height": 1591, "screenshot": "copy-review-evidence/works-with-your-tools-mobile.png", "full_page_screenshot": "copy-review-evidence/works-with-your-tools-mobile-full.png"}
+    }
+  ],
+  "schema_version": "product_factory.browser_rendered_route_evidence.v1"
+}

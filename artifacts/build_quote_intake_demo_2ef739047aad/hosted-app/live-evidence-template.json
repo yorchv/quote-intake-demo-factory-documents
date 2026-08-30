@@ -1,0 +1,88 @@
+{
+  "analytics": {
+    "capture": {
+      "passed": false,
+      "status_code": null
+    },
+    "provider": "posthog",
+    "verification_event": "factory_connection_verified"
+  },
+  "api": {
+    "authenticated_state": {
+      "passed": false,
+      "status_code": null
+    },
+    "health": {
+      "body": {},
+      "passed": false,
+      "status_code": null
+    },
+    "postgres_persistence": {
+      "evidence": "",
+      "passed": false
+    },
+    "railway_service": "quote-intake-demo-api",
+    "unauthenticated_state": {
+      "passed": false,
+      "status_code": null
+    },
+    "url": ""
+  },
+  "env": {
+    "inkpass_auth_mode": "",
+    "inkpass_client_slug_configured": false,
+    "inkpass_service_key_configured": false,
+    "inkpass_url_configured": false,
+    "posthog_host_configured": false,
+    "posthog_project_token_configured": false,
+    "product_allowed_origins_configured": false,
+    "product_database_url_configured": false,
+    "secrets_redacted": true
+  },
+  "events": {
+    "sandbox_billing_event_stored": false,
+    "usage_event_stored": false
+  },
+  "product_id": "quote-intake-demo",
+  "schema_version": "product_factory.railway_live_evidence.v1",
+  "web": {
+    "browser_workflow": {
+      "passed": false,
+      "screenshot_ref": ""
+    },
+    "launch_distribution": {
+      "metadata": {
+        "missing_tokens": [],
+        "passed": false
+      },
+      "passed": false,
+      "required": true,
+      "search_routes": {
+        "passed": false
+      },
+      "social_images": {
+        "items": [],
+        "passed": false
+      }
+    },
+    "loads": {
+      "passed": false,
+      "status_code": null
+    },
+    "organic_discovery": {
+      "passed": false,
+      "private_routes": [],
+      "public_pages": [],
+      "required": true,
+      "robots": {
+        "passed": false
+      },
+      "sitemap": {
+        "passed": false
+      }
+    },
+    "provider": "vercel",
+    "url": "",
+    "vercel_project": "quote-intake-demo-web"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "architecture_build_id": "architecture_quote-intake-demo_2ef739047aad",
+  "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "change_id": "change_4321603fa278",
+  "control_plane_status": "ready",
+  "created_at": "2026-08-29T21:51:27+00:00",
+  "creation_id": "creation_2ef739047aad",
+  "deployment_authorized": true,
+  "idempotency_key": "demo-portfolio-quote-intake-v1",
+  "product_id": "quote-intake-demo",
+  "product_name": "QuoteRivet",
+  "provider_mutation_authorized": true,
+  "requested_by": "jorgevivas",
+  "requested_target": "production_ready",
+  "schema_version": "product_factory.product_creation.v3",
+  "spec_ref": "specs/quote-intake-demo.json",
+  "updated_at": "2026-08-30T03:45:52+00:00"
+}

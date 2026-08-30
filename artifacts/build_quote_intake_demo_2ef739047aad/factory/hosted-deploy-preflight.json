@@ -1,0 +1,196 @@
+{
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "checks": [
+    {
+      "build_id": "build_quote_intake_demo_2ef739047aad",
+      "name": "build selected",
+      "passed": true
+    },
+    {
+      "name": "package-manifest.json exists",
+      "passed": true,
+      "path": "package-manifest.json"
+    },
+    {
+      "name": "deployment-plan.json exists",
+      "passed": true,
+      "path": "deployment-plan.json"
+    },
+    {
+      "name": "backend/Dockerfile exists",
+      "passed": true,
+      "path": "backend/Dockerfile"
+    },
+    {
+      "name": "backend/railway.json exists",
+      "passed": true,
+      "path": "backend/railway.json"
+    },
+    {
+      "name": "backend/app.py exists",
+      "passed": true,
+      "path": "backend/app.py"
+    },
+    {
+      "name": "backend/migrations/000_isolation.sql exists",
+      "passed": true,
+      "path": "backend/migrations/000_isolation.sql"
+    },
+    {
+      "name": "backend/migrations/001_init.sql exists",
+      "passed": true,
+      "path": "backend/migrations/001_init.sql"
+    },
+    {
+      "name": "frontend/Dockerfile exists",
+      "passed": true,
+      "path": "frontend/Dockerfile"
+    },
+    {
+      "name": "frontend/vercel.json exists",
+      "passed": true,
+      "path": "frontend/vercel.json"
+    },
+    {
+      "name": "frontend/package.json exists",
+      "passed": true,
+      "path": "frontend/package.json"
+    },
+    {
+      "name": "frontend-npm-test.log exists",
+      "passed": true,
+      "path": "frontend-npm-test.log"
+    },
+    {
+      "name": "frontend-npm-build.log exists",
+      "passed": true,
+      "path": "frontend-npm-build.log"
+    },
+    {
+      "name": "scripts/deploy-plan.sh exists",
+      "passed": true,
+      "path": "scripts/deploy-plan.sh"
+    },
+    {
+      "name": "scripts/check_launch_readiness.py exists",
+      "passed": true,
+      "path": "scripts/check_launch_readiness.py"
+    },
+    {
+      "name": "scripts/validate-live-evidence.py exists",
+      "passed": true,
+      "path": "scripts/validate-live-evidence.py"
+    },
+    {
+      "name": "live-evidence-template.json exists",
+      "passed": true,
+      "path": "live-evidence-template.json"
+    },
+    {
+      "name": "hosted deployment tier is supported",
+      "passed": true,
+      "tier": "incubation"
+    },
+    {
+      "configured": true,
+      "env": "PRODUCT_FACTORY_RAILWAY_SERVERLESS_CONFIRMED",
+      "name": "Railway Serverless setting confirmed for sleeping API tier",
+      "passed": true
+    },
+    {
+      "configured": true,
+      "env": "PRODUCT_FACTORY_DATABASE_ISOLATION_CONFIRMED",
+      "name": "shared Postgres role/schema isolation confirmed",
+      "passed": true
+    },
+    {
+      "frontend_build_log": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/frontend-npm-build.log",
+      "frontend_test_log": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app/frontend-npm-test.log",
+      "name": "hosted app local package evidence exists",
+      "passed": true
+    },
+    {
+      "command": "env -u VERCEL_TOKEN -u VERCEL_TEAM_ID vercel",
+      "name": "Vercel CLI available",
+      "passed": true
+    },
+    {
+      "command": "env -u VERCEL_TOKEN -u VERCEL_TEAM_ID vercel whoami",
+      "name": "Vercel CLI authenticated",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "valboa"
+    },
+    {
+      "command": "railway",
+      "name": "Railway CLI available",
+      "passed": true
+    },
+    {
+      "auth_mode": "project_token",
+      "command": "railway status --json",
+      "expected_project_id": "18c58081-5bb6-4bc3-b0ed-815b6422e8a8",
+      "expected_project_matches": true,
+      "name": "Railway CLI authenticated",
+      "passed": true,
+      "project_id": "18c58081-5bb6-4bc3-b0ed-815b6422e8a8",
+      "returncode": 0,
+      "whoami_returncode": 1,
+      "whoami_stderr": "Unauthorized. Please check that your RAILWAY_TOKEN is valid and has access to the resource you're trying to use."
+    },
+    {
+      "configured": true,
+      "env": "PRODUCT_DATABASE_URL",
+      "name": "PRODUCT_DATABASE_URL configured",
+      "passed": true
+    },
+    {
+      "configured": true,
+      "env": "INKPASS_URL",
+      "https": true,
+      "name": "INKPASS_URL configured with https",
+      "passed": true
+    },
+    {
+      "configured": true,
+      "env": [
+        "PRODUCT_INKPASS_SERVICE_API_KEY",
+        "INKPASS_SERVICE_API_KEY"
+      ],
+      "name": "INKPASS service API key configured",
+      "passed": true
+    },
+    {
+      "configured": true,
+      "derived": false,
+      "env": "PRODUCT_ALLOWED_ORIGINS",
+      "has_wildcard": false,
+      "name": "PRODUCT_ALLOWED_ORIGINS configured without wildcard",
+      "origin_count": 3,
+      "passed": true
+    }
+  ],
+  "commands": {
+    "local_ci": "frontend npm test/build plus backend health smoke",
+    "railway": "railway",
+    "reset_local_state": "not_applicable",
+    "vercel": "env -u VERCEL_TOKEN -u VERCEL_TEAM_ID vercel"
+  },
+  "created_at": "2026-08-30T03:45:51+00:00",
+  "missing_for_hosted_deploy": [],
+  "next_commands": [
+    "cd artifacts/build_quote_intake_demo_2ef739047aad/hosted-app && bash scripts/deploy-plan.sh",
+    "railway status --json",
+    "vercel whoami",
+    "configure Railway env: PRODUCT_ENV, PRODUCT_DATABASE_URL, PRODUCT_ALLOWED_ORIGINS, INKPASS_AUTH_MODE, INKPASS_URL, PRODUCT_INKPASS_SERVICE_API_KEY",
+    "configure Vercel env: NEXT_PUBLIC_PRODUCT_API_URL, NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_INKPASS_CLIENT_SLUG, NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN",
+    "cd artifacts/build_quote_intake_demo_2ef739047aad/hosted-app && python scripts/validate-live-evidence.py <live-evidence.json>"
+  ],
+  "package_kind": "hosted_app",
+  "package_path": "artifacts/build_quote_intake_demo_2ef739047aad/hosted-app",
+  "passed": true,
+  "production_ready": false,
+  "schema_version": "product_factory.hosted_deploy_preflight.v1",
+  "status": "ready_for_provider_deployment"
+}

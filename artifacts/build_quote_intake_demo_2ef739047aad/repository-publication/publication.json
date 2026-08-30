@@ -1,0 +1,71 @@
+{
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "created_at": "2026-08-30T03:25:26.555742+00:00",
+  "license_profile": "proprietary_internal_use_v1",
+  "organization": "yorchv",
+  "passed": true,
+  "preflight_ref": "artifacts/build_quote_intake_demo_2ef739047aad/repository-publication/preflight.json",
+  "product_id": "quote-intake-demo",
+  "production_readiness_note": "Repository publication does not replace live deployment and product evidence.",
+  "production_ready": false,
+  "provider": {
+    "branch": "main",
+    "commit_sha": "eaa15844e42f3d6f1b5b135ea8bdb93ff73c813e",
+    "created": false,
+    "installation_token": {
+      "credential_source": "github_cli",
+      "token_retained": false
+    },
+    "passed": true,
+    "pull_request": null,
+    "repository": {
+      "clone_url": "https://github.com/yorchv/quote-intake-demo.git",
+      "default_branch": "main",
+      "full_name": "yorchv/quote-intake-demo",
+      "html_url": "https://github.com/yorchv/quote-intake-demo",
+      "id": 1351072135,
+      "name": "quote-intake-demo",
+      "node_id": "R_kgDOUIe5hw",
+      "owner": "yorchv",
+      "private": true,
+      "visibility": "private"
+    },
+    "security": {
+      "checks": [
+        {
+          "configured": true,
+          "http_status": 204,
+          "name": "actions_default_permissions_read",
+          "note": null
+        },
+        {
+          "configured": true,
+          "http_status": 204,
+          "name": "vulnerability_alerts_enabled",
+          "note": null
+        },
+        {
+          "configured": true,
+          "http_status": 204,
+          "name": "automated_security_fixes_enabled",
+          "note": null
+        },
+        {
+          "configured": false,
+          "http_status": 403,
+          "name": "main_branch_protected",
+          "note": "GitHub plan, repository state, or installation permissions do not support this setting."
+        }
+      ],
+      "passed": false,
+      "warnings": [
+        "main_branch_protected"
+      ]
+    },
+    "status": "published_initial"
+  },
+  "repository": "quote-intake-demo",
+  "repository_digest": "sha256:41f087c459224e0404663c68c64b989ff5d35a58c711881bf1e391ffd97af3be",
+  "schema_version": "product_factory.repository_publication.v1",
+  "status": "published_initial"
+}

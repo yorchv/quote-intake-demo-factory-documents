@@ -1,0 +1,64 @@
+{
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "checks_failed": [],
+  "checks_passed": [
+    "organic-discovery.json declares five anonymous public routes, and copy-review-evidence/browser-rendered-routes.json records those five routes exactly once for product quote-intake-demo and build build_quote_intake_demo_2ef739047aad",
+    "the retained root-managed evidence records matching rendered titles and headings plus complete 1440 by 1000 desktop and 390 by 844 mobile captures for every declared public route",
+    "every rendered page leads with a concrete request, review, pre-quote, site-visit, or tool-boundary outcome and answers a route-specific buyer objection",
+    "visible operational claims resolve through approved claim_refs and retained proof_refs in organic-discovery.json, while the pages make no unsupported superiority, revenue, close-rate, never-miss, staff-replacement, or guaranteed-outcome claims",
+    "buyer-readable source labels replace raw evidence identifiers on the rendered resource pages",
+    "important limitations remain visible: intake does not promise a visit or quote, a completed detail check does not mean a quote was issued or accepted, a scheduled visit does not prove that the company can prepare a quote, and accounting, dispatch, invoicing, payments, and completed-job records remain outside QuoteRivet"
+  ],
+  "decision": "approved",
+  "issues": [],
+  "product_id": "quote-intake-demo",
+  "required": true,
+  "review_type": "skeptical_buyer",
+  "reviewed_routes": [
+    "/",
+    "/estimate-request-intake",
+    "/quote-ready-checklist",
+    "/site-visit-handoff",
+    "/works-with-your-tools"
+  ],
+  "reviewer_agent_id": "skeptical_buyer_review_agent",
+  "route_reviews": [
+    {
+      "customer_outcome": "The requester can send the job, location, contact, source, and follow-up details in one record, then see that an office coordinator owns the next review before any visit or quote is arranged.",
+      "passed": true,
+      "plain_language_summary": "The page answers the objection that a requester may have to repeat scattered details or may not know who follows up. It shows one saved request, a named human review step, and a clear limit that submission does not issue or promise a quote.",
+      "route": "/",
+      "unexplained_terms": []
+    },
+    {
+      "customer_outcome": "Office staff can preserve where each request came from, fill missing details, record who will follow up, and avoid implying that intake guarantees a visit, schedule, price, quote, or acceptance.",
+      "passed": true,
+      "plain_language_summary": "The page answers the objection that calls, messages, email, forms, and in-person requests create a fragmented process. It explains the human qualification decision, identifies the responsible next person, and shows buyer-readable sources.",
+      "route": "/estimate-request-intake",
+      "unexplained_terms": []
+    },
+    {
+      "customer_outcome": "A coordinator or estimator can see which requester facts and site details are present, which are missing or disputed, and whether there is enough information to prepare a quote.",
+      "passed": true,
+      "plain_language_summary": "The page answers the objection that a generic form may miss photos, measurements, access facts, exclusions, assumptions, or open questions. It provides a concrete checklist and says that passing the check does not mean a quote was issued or accepted.",
+      "route": "/quote-ready-checklist",
+      "unexplained_terms": []
+    },
+    {
+      "customer_outcome": "The requester-visible work description, confirmed visit time, assigned estimator, access notes, field evidence, and site checklist stay with the same estimate request, while missing or disputed details remain assigned for correction.",
+      "passed": true,
+      "plain_language_summary": "The page answers the objection that site-visit context can be lost during handoff. It names the accountable estimator, records who supplied each detail, routes incomplete work to a responsible person, and says that scheduling alone is not enough information to prepare a quote.",
+      "route": "/site-visit-handoff",
+      "unexplained_terms": []
+    },
+    {
+      "customer_outcome": "A buyer can keep request review, estimator assignment, site details, the pre-quote check, and staff handoff together while existing systems continue to own accounting, dispatch, invoicing, payments, and completed-job records.",
+      "passed": true,
+      "plain_language_summary": "The page answers the duplicate-system and replacement objection by naming QuoteRivet's boundary, stating that integrations require an approved record-mapping and error-correction plan, and explaining when a broader field-service suite may fit better.",
+      "route": "/works-with-your-tools",
+      "unexplained_terms": []
+    }
+  ],
+  "schema_version": "product_factory.public_copy_review.v1",
+  "status": "verified"
+}

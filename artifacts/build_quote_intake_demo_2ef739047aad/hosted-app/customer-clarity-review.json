@@ -1,0 +1,62 @@
+{
+  "build_id": "build_quote_intake_demo_2ef739047aad",
+  "checks_failed": [],
+  "checks_passed": [
+    "Reviewed all five declared public routes exactly once at desktop 1440x1000 and mobile 390x844 widths using retained root-managed screenshots after the required preview command failed to bind 127.0.0.1:4173 with EPERM.",
+    "Confirmed that the retained evidence records the exact route and viewport for each screenshot and that each recorded rendered title and heading matches the screenshot.",
+    "Recorded a one-sentence plain-language summary and a concrete customer outcome for every declared public route.",
+    "Every declared public page uses familiar customer language, states a concrete benefit before implementation details, and can be paraphrased accurately after one read."
+  ],
+  "decision": "approved",
+  "issues": [],
+  "product_id": "quote-intake-demo",
+  "required": true,
+  "review_type": "customer_clarity",
+  "reviewed_routes": [
+    "/",
+    "/estimate-request-intake",
+    "/quote-ready-checklist",
+    "/site-visit-handoff",
+    "/works-with-your-tools"
+  ],
+  "reviewer_agent_id": "customer_clarity_review_agent",
+  "route_reviews": [
+    {
+      "route": "/",
+      "plain_language_summary": "QuoteRivet lets a customer send job and location details to a contractor so a staff member can review the request before arranging a visit or preparing a quote.",
+      "customer_outcome": "The customer submits the details once and can see that a named staff member is responsible for reviewing the request.",
+      "unexplained_terms": [],
+      "passed": true
+    },
+    {
+      "route": "/estimate-request-intake",
+      "plain_language_summary": "QuoteRivet puts estimate requests from calls, messages, email, web forms, and in-person conversations in one place for office staff to check and assign.",
+      "customer_outcome": "Office staff can collect missing details, decide whether the company handles the work, and tell each requester who will follow up.",
+      "unexplained_terms": [],
+      "passed": true
+    },
+    {
+      "route": "/quote-ready-checklist",
+      "plain_language_summary": "This page lists the customer, job, visit, and site details an estimator should check before preparing a quote.",
+      "customer_outcome": "The estimator can see what information is present, what is missing, and whether there is enough information to prepare a quote.",
+      "unexplained_terms": [],
+      "passed": true
+    },
+    {
+      "route": "/site-visit-handoff",
+      "plain_language_summary": "This page keeps the work description, visit time, assigned estimator, access notes, and site details with the same estimate request.",
+      "customer_outcome": "Office staff and the estimator can keep visit details together and send missing information to the person responsible for fixing it.",
+      "unexplained_terms": [],
+      "passed": true
+    },
+    {
+      "route": "/works-with-your-tools",
+      "plain_language_summary": "QuoteRivet organizes estimate-request work while accounting, dispatch, invoicing, payments, and completed-job records stay in the contractor's current systems.",
+      "customer_outcome": "A contractor can add QuoteRivet without moving its accounting, dispatch, invoicing, payment, or completed-job records.",
+      "unexplained_terms": [],
+      "passed": true
+    }
+  ],
+  "schema_version": "product_factory.public_copy_review.v1",
+  "status": "verified"
+}

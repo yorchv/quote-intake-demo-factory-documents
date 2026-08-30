@@ -1,0 +1,101 @@
+{
+  "agent_task_refs": [
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/01-architecture_market_positioning_research_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/02-architecture_product_naming_research_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/03-architecture_persona_research_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/04-architecture_common_sop_catalog_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/05-architecture_domain_sop_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/06-architecture_data_model_architect_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/07-architecture_migration_safety_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/08-architecture_workflow_architect_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/09-architecture_product_design_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/10-architecture_public_information_architecture_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/11-architecture_organic_discovery_verifier_agent.json",
+    "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/12-architecture_architecture_verifier_agent.json"
+  ],
+  "architecture_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/architecture.json",
+  "build_id": "architecture_quote-intake-demo_2ef739047aad",
+  "created_at": "2026-08-29T21:51:27+00:00",
+  "generation_allowed": false,
+  "generation_blocker": "complete and verify the ordered architecture pipeline, then pin its SHA256 in a product spec",
+  "next_agent_task_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/agent-tasks/01-architecture_market_positioning_research_agent.json",
+  "passed": true,
+  "pipeline_ref": "artifacts/architecture_quote-intake-demo_2ef739047aad/product-architecture/pipeline.json",
+  "policy_decision": {
+    "allowed": true,
+    "blockers": [
+      "trusted infra spend ingestion is wired",
+      "trusted revenue or billing-provider ingestion is wired",
+      "hosted deployment and evidence collection can run without manual command stitching",
+      "at least one live product has a repeated source-backed autonomy cycle"
+    ],
+    "factory_direction": {
+      "configured": true,
+      "current_focus": {
+        "build_id": "build_worthsend_product_send_20260727",
+        "product_id": "worthsend",
+        "reason": "Worthsend is the newest deployed product and the current product-development focus. Its hosted web/API services and l-o-ol.com domains are live; customer, revenue, satisfaction, and retained production-gate evidence remain to be proven."
+      },
+      "direction_ref": "config/factory-direction.json",
+      "do_not_start_new_products_until": [
+        "trusted infra spend ingestion is wired",
+        "trusted revenue or billing-provider ingestion is wired",
+        "hosted deployment and evidence collection can run without manual command stitching",
+        "at least one live product has a repeated source-backed autonomy cycle"
+      ],
+      "max_loss_cents": 5000,
+      "minimum_products": 2,
+      "new_product_hold": true,
+      "operating_budget_cents": 50000,
+      "operating_mandate": {
+        "authorized_external_actions": [
+          "publish the selected product on factory-controlled infrastructure",
+          "contact qualified prospects with truthful personalized outreach through connected operator-approved accounts",
+          "run organic acquisition experiments",
+          "run paid acquisition through existing connected accounts while cumulative source-backed spend remains below the operating budget",
+          "adjust product copy, offer packaging, and pricing while preserving truthful claims and the operating budget"
+        ],
+        "compliance_requirements": [
+          "honor channel terms and applicable outreach, privacy, and consumer-protection rules",
+          "identify the sender truthfully and provide required opt-out and business identity information",
+          "do not make clinical, regulatory, security, savings, or outcome claims without retained evidence",
+          "do not purchase, scrape, or use contact data when the source or permitted use is unclear"
+        ],
+        "deadline": "2026-08-16",
+        "duration_days": 30,
+        "mandate_id": "first-three-paying-customers-2026-07",
+        "operating_budget_usd": 500.0,
+        "product_limit": 1,
+        "starts_on": "2026-07-17",
+        "success_criteria": {
+          "minimum_contribution_margin_cents": 1,
+          "repeatable_fulfillment_evidence_required": true,
+          "satisfied_customers": 3,
+          "served_customers": 3,
+          "settled_live_payments": 3,
+          "source_backed_revenue_required": true,
+          "source_backed_spend_required": true
+        }
+      },
+      "operating_systems": [
+        "autonomous",
+        "efficient",
+        "proactive",
+        "professional",
+        "profitable",
+        "reliable",
+        "secure"
+      ],
+      "primary_objective": "maximize source-backed monthly net revenue, not product count",
+      "target_roi": 1.5
+    },
+    "override_reason": "Operator explicitly requested Product Factory-created demos to test the claim, remix, and ownable-software offer; this first canary stops at local verification and does not deploy.",
+    "override_used": true,
+    "product_id": "quote-intake-demo",
+    "status": "allowed_by_explicit_override"
+  },
+  "product_id": "quote-intake-demo",
+  "product_name": "Quote Intake Demo",
+  "schema_version": "product_factory.product_architecture_start.v1",
+  "status": "architecture_planning"
+}
